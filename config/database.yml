@@ -14,8 +14,9 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: root
+  password: 654321    
   host: localhost
+  
 development:
   <<: *default
   database: rocketelevatorsinformationsystem_development
