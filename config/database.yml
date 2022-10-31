@@ -15,11 +15,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: julien
   password: geriboire
-<<<<<<< HEAD
   socket: /var/run/mysqld/mysqld.sock
-=======
-  host: localhost
->>>>>>> dev
+
 development:
   <<: *default
   database: rocketelevatorsinformationsystem_development
