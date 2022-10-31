@@ -1,0 +1,43 @@
+.img-resize-portfolio {
+    height: 258px;
+}
+
+.img-resize-services {
+    height: 240px;
+}
+
+.btn-blue {
+    background-color: #0c64a3;
+}
+
+.stroke-text {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.logo-resize {
+    margin: 5px 0 5px 0;
+    height: 50px !important;
+}
+
+.img-resize-popup {
+    width: 760px;
+}
+
+h1 {
+    color: #A94545;
+    font-weight: bold !important;
+}
+
+.img-resize-logo {
+    width: 222px;
+    height: 225px;
+}
+
+.align-radio-quote {
+    margin-left: 10px;
+}
+
+.margin-product-lines {
+    margin-top: 20px;
+}

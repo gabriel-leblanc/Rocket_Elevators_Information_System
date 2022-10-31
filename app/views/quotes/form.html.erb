@@ -1,0 +1,335 @@
+
+
+		<section class="page-header" style="background-image: url('assets/images/skyrise.jpg');">
+			<div class="container">
+				<h1>REQUEST FOR A QUOTE</h1>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<!-- /FORM -->
+				<div class="col-md-8 col-sm-8">
+					<!-- MESSAGES
+		
+			How it works?
+			The form data is posted to php/contact.php where the fields are verified!
+			php.contact.php will redirect back here and will add a hash to the end of the URL:
+				#alert_success 		= email sent
+				#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
+				#alert_mandatory	= email not sent - required fields empty
+				Hashes are handled by assets/js/contact.js
+
+			Form data: required to be an array. Example:
+				contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
+				Also, add `required` to input fields if is a mandatory field. 
+				Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+
+			PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
+						 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
+
+			WARNING! Do not change the `email` and `name`!
+						contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+						contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+	-->
+
+					<!-- Alert Success -->
+					<div id="alert_success" class="alert alert-success mb-30">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Thank You!</strong> Your message successfully sent!
+					</div><!-- /Alert Success -->
+
+
+					<!-- Alert Failed -->
+					<div id="alert_failed" class="alert alert-danger mb-30">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>[SMTP] Error!</strong> Internal server error!
+					</div><!-- /Alert Failed -->
+
+
+					<!-- Alert Mandatory -->
+					<div id="alert_mandatory" class="alert alert-danger mb-30">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+					</div><!-- /Alert Mandatory -->
+
+					<form id="form-quote" autocomplete="off"  action="/quotes" method="post" onSubmit="return confirm('Do you want to submit?') ">
+						<fieldset>
+
+							<div class="row align-radio_quote">
+
+								<div class="col-md-3">
+									<input class="form-check-input" type="radio" name="radio_quote"
+										id="radio_residential" value="residential" checked>
+									<label class="form-check-label" for="radio_residential">Residential</label>
+								</div>
+								<div class="col-md-3">
+									<input class="form-check-input" type="radio" name="radio_quote" id="radio_comercial"
+										value="commercial">
+									<label class="form-check-label" for="radio_comercial">Commercial</label>
+								</div>
+								<div class="col-md-3">
+									<input class="form-check-input" type="radio" name="radio_quote" id="radio_corporate"
+										value="corporate">
+									<label class="form-check-label" for="radio_corporate">Corporate</label>
+								</div>
+								<div class="col-md-3">
+									<input class="form-check-input" type="radio" name="radio_quote" id="radio_hybrid"
+										value="hybrid">
+									<label class="form-check-label" for="radio_hybrid">Hybrid</label>
+								</div>
+
+							</div>
+
+							<!-- divider -->
+							<div class="divider divider-center divider-color">
+								<i class="fa fa-chevron-down"></i>
+							</div>
+
+							<div id="div-quote-residential">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_apartments">Number of apartments in the building</label>
+										<input type="text" value="" class="form-control" name="number_apartments"
+											id="number_apartments" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_floors_residential">Number of floors contained in the
+											building
+											(excluding basements)</label>
+										<input type="text" value="" class="form-control"
+											name="number_floors_residential" id="number_floors_residential"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_basements_residential">Number of basements contained in the
+											building</label>
+										<input type="text" value="" class="form-control"
+											name="number_basements_residential" id="number_basements_residential"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+							</div>
+
+							<div id="div-quote-commercial" style="display: none;">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_distinct_businesses_commercial">Number of distinct
+											businesses</label>
+										<input type="text" value="" class="form-control"
+											name="number_distinct_businesses_commercial"
+											id="number_distinct_businesses_commercial" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_floors_commercial">Number of floors contained in the building
+											(excluding basements)</label>
+										<input type="text" value="" class="form-control" name="number_floors_commercial"
+											id="number_floors_commercial" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_basements_commercial">Number of basements contained in the
+											building</label>
+										<input type="text" value="" class="form-control"
+											name="number_basements_commercial" id="number_basements_commercial"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_parking_commercial">Number of parking space available</label>
+										<input type="text" value="" class="form-control"
+											name="number_parking_commercial" id="number_parking_commercial"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_elevators">Number of elevator cages to be deployed</label>
+										<input type="text" value="" class="form-control" name="number_elevators"
+											id="number_elevators" onkeyup="calculateQuote()">
+									</div>
+								</div>
+							</div>
+
+							<div id="div-quote-corporate" style="display: none;">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_separate_companies">Number of separate tenant
+											companies</label>
+										<input type="text" value="" class="form-control"
+											name="number_separate_companies" id="number_separate_companies"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_floors_corporate">Number of floors contained in the building
+											(excluding basements)</label>
+										<input type="text" value="" class="form-control" name="number_floors_corporate"
+											id="number_floors_corporate" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_basements_corporate">Number of basements contained in the
+											building</label>
+										<input type="text" value="" class="form-control"
+											name="number_basements_corporate" id="number_basements_corporate"
+											onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_parking_corporate">Number of parking space available</label>
+										<input type="text" value="" class="form-control" name="number_parking_corporate"
+											id="number_parking_corporate" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="max_number_occupants_floor_corporate">Maximum number of occupants
+											per floor</label>
+										<input type="text" value="" class="form-control"
+											name="max_number_occupants_floor_corporate"
+											id="max_number_occupants_floor_corporate" onkeyup="calculateQuote()">
+									</div>
+								</div>
+							</div>
+
+							<div id="div-quote-hybrid" style="display: none;">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_distinct_businesses_hybrid">Number of distinct
+											businesses</label>
+										<input type="text" value="" class="form-control"
+											name="number_distinct_businesses_hybrid"
+											id="number_distinct_businesses_hybrid" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_floors_hybrid">Number of floors contained in the building
+											(excluding basements)</label>
+										<input type="text" value="" class="form-control" name="number_floors_hybrid"
+											id="number_floors_hybrid" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_basements_hybrid">Number of basements contained in the
+											building</label>
+										<input type="text" value="" class="form-control" name="number_basements_hybrid"
+											id="number_basements_hybrid" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_parking_hybrid">Number of parking space available</label>
+										<input type="text" value="" class="form-control" name="number_parking_hybrid"
+											id="number_parking_hybrid" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="max_number_occupants_floor_hybrid">Maximum number of occupants per
+											floor</label>
+										<input type="text" value="" class="form-control"
+											name="max_number_occupants_floor_hybrid" vs
+											id="max_number_occupants_floor_hybrid" onkeyup="calculateQuote()">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="number_hours_activity">Number of hours of activity of the building
+											(the maximum being 24)</label>
+										<input type="text" value="" class="form-control" name="number_hours_activity"
+											id="number_hours_activity" onkeyup="calculateQuote()">
+									</div>
+								</div>
+							</div>
+							<div class="margin-product-lines">
+								<label>Product lines</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="product_line"
+										id="product-line-standard" value="standard">
+									<label class="form-check-label" for="product-line-standard">
+										Standard
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="product_line"
+										id="product-line-premium" value="premium">
+									<label class="form-check-label" for="product-line-premium">
+										Premium
+									</label>
+								</div>
+								<div class="form-check disabled">
+									<input class="form-check-input" type="radio" name="product_line"
+										id="product-line-excelium" value="excelium">
+									<label class="form-check-label" for="product-line-excelium">
+										Excelium
+									</label>
+								</div>
+							</div>
+
+						</fieldset>
+
+						<div id="result-quote">
+							<div class="heading-title heading-dotted text-center">
+								<h2>YOUR QUOTE</h2>
+							</div>
+							<div class="col-md-12">
+								<input   type="hidden"  id="elevator_need" name="elevator_need">
+								<p>The amount of elevators needed: <label  id="lblNumberElevators">0</label></p>
+
+								<input type="hidden"    id="unit_price" name="unit_price">
+								<p>The unit price of each elevator: <label id="lblPriceElevator">$0</label></p>
+
+								<input type="hidden"    id="total_price" name="total_price">
+								<p>The total price of the elevators: <label id="lblTotalPriceElevator">$0</label></p>
+.
+								<input type="hidden"    id="installation_fees" name="installation_fees">
+								<p>The installation fees: <label id="lblInstallationFees">$0</label></p>
+
+								<input type="hidden"    id="final_price" name="final_price">
+								<p>The final price, combining the price of the elevators and the installation fees:
+									<label id="lblFinalPrice">$0</label>
+								</p>
+							</div>
+						</div>
+						 <input type="submit" value="Submit" >
+					</form>
+				</div>
+				<!-- /FORM -->
+			</div>
+		</section>
+		
+	</div>
+	<!-- /wrapper -->
+
+
+	<!-- SCROLL TO TOP -->
+	<a href="#" id="toTop"></a>
+
+
+	<!-- PRELOADER
+	<div id="preloader">
+		<div class="inner">
+			<span class="loader"></span>
+		</div>
+	</div> /PRELOADER -->
+
+	<!-- STYLESWITCHER - REMOVE -->
+
+	<!-- PAGELEVEL SCRIPTS -->
+</body>
+
+</html>

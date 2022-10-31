@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Rocket Elevators Services</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   </head>
+   <body class="smoothscroll enable-animation">
+      <script>var plugin_path = 'assets/plugins/';</script>
+      <!-- wrapper -->
+      <div id="wrapper">
+
+         <!-- menu -->
+         <!-- 
+            AVAILABLE HEADER CLASSES
+            
+            Default nav height: 96px
+            .header-md 		= 70px nav height
+            .header-sm 		= 60px nav height
+            
+            .b-0 		= remove bottom border (only with transparent use)
+            .transparent	= transparent header
+            .translucent	= translucent header
+            .sticky			= sticky header
+            .static			= static header
+            .dark			= dark header
+            .bottom			= header on bottom
+            
+            shadow-before-1 = shadow 1 header topG,
+            shadow-after-1 	= shadow 1 header bottom
+            shadow-before-2 = shadow 2 header top
+            shadow-after-2 	= shadow 2 header bottom
+            shadow-before-3 = shadow 3 header top
+            shadow-after-3 	= shadow 3 header bottom
+            
+            .clearfix		= required for mobile menu, do not remove!
+            
+            Example Usage:  class="clearfix sticky header-sm transparent b-0"
+            -->
+         <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+            <!-- TOP NAV -->
+            <header id="topNav">
+               <div class="container">
+                  <!-- Mobile Menu Button -->
+                  <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                  <i class="fa fa-bars"></i>
+                  </button>
+                  <!-- Logo -->
+                  <a class="logo float-left  " href="/">
+                  <img class="logo-resize" src="assets/images/R2.png" alt="" />
+                  </a>
+                  <!-- 
+                     Top Nav 
+                     
+                     AVAILABLE CLASSES:
+                     submenu-dark = dark sub menu
+                     -->
+                  <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                     <nav class="nav-main">
+                        <!-- 
+                           .nav-onepage
+                           Required for onepage navigation links
+                           
+                           Add .external for an external link!
+                           -->
+                        <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                           <li class="active">
+                              <!-- HOME -->
+                              <a href="/">
+                              HOME
+                              </a>
+                           </li>
+                           <li>
+                              <!-- SERVICES -->
+                              <a href="/#services">
+                              SERVICES
+                              </a>
+                           </li>
+                           <li>
+                              <!-- PORTFOLIO -->
+                              <a href="/#portfolio">
+                              PORTFOLIO
+                              </a>
+                           </li>
+                           <li>
+                              <!-- NEWS -->
+                              <a href="/#news">
+                              NEWS
+                              </a>
+                           </li>
+                           <li>
+                              <!-- CLIENTS -->
+                              <a href="/#clients">
+                              CLIENTS
+                              </a>
+                           </li>
+                           <li>
+                              <!-- CONTACT -->
+                              <a href="/#contact">
+                              CONTACT
+                              </a>
+                           </li>
+                           <% if user_signed_in? %>
+                              <li>
+                                    <!-- BACK-OFFICE -->
+                                    <a href="/admin">
+                                    BACK-OFFICE
+                                    </a>
+                                 </li>
+                              <li>
+                                 <!-- LOG OUT -->
+                                 <%= link_to "LOG OUT", destroy_user_session_path, method: :delete  %>
+                              </li>
+                              
+                           <% else %>
+                              <li>
+                                 <!-- login -->
+                                 <a href="/users/sign_in">
+                                 LOGIN
+                                 </a>
+                              </li>
+                              <li>
+                                 <!-- REGISTER -->
+                                 <a href="/users/sign_in">
+                                 REGISTER
+                                 </a>
+                              </li>
+                           <% end %>
+                           
+                        </ul>
+                     </nav>
+                  </div>
+               </div>
+            </header>
+            <!-- /Top Nav -->
+         </div>
+         <!-- menu -->
+
+        
+
+         <%= yield %>
+
+         <!-- FOOTER -->
+         <footer id="footer">
+            <div class="container">
+               <div class="row">
+                  <!-- col #1 -->
+                  <div class="col-md-8">
+                     <h3 class="letter-spacing-1">WHY US?</h3>
+                     <!-- Small Description -->
+                     <p>
+                        We succeed by being a good corporate citizen. With customers in approximately 200 countries
+                        and territories, Otis is a true global citizen.
+                        Everywhere we do business, we operate on the belief that financial performance and corporate
+                        responsibility go hand in hand.
+                     </p>
+                     <h2>(800) 887-2497</h2>
+                  </div>
+                  <!-- /col #1 -->
+                  <!-- col #2 -->
+                  <div class="col-md-4">
+                     <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+                     <!-- Newsletter Form -->
+                     <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+                     <form class="validate" action="php/newsletter.php" method="post"
+                        data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+                        <div class="input-group">
+                           <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                           <input type="email" id="email" name="email" class="form-control required"
+                              placeholder="Enter your Email">
+                           <span class="input-group-btn">
+                           <button class="btn btn-success" type="submit">Subscribe</button>
+                           </span>
+                        </div>
+                     </form>
+                     <!-- /Newsletter Form -->
+                  </div>
+                  <!-- /col #2 -->
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <ul class="float-right m-0 list-inline mobile-block">
+                     <li><a href="#">Terms &amp; Conditions</a></li>
+                     <li>&bull;</li>
+                     <li><a href="#">Privacy</a></li>
+                  </ul>
+                  &copy; All Rights Reserved, Company LTD
+               </div>
+            </div>
+         </footer>
+         <!-- /FOOTER -->
+
+      </div>
+      <!-- wrapper -->
+
+      <!-- SCROLL TO TOP -->
+      <a href="#" id="toTop"></a>
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </body>
+</html>
