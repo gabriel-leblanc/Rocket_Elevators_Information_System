@@ -50537,3 +50537,14 @@ Migrating to CreateCustomers (20221031193726)
   ↳ bin/rails:9
   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-10-31 16:24:15 -0400
+  [1m[35m (5.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/laura/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/laura/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 1788ms (Views: 1784.5ms | ActiveRecord: 0.0ms)
+
+
