@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_10_31_160004) do
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -23,9 +22,6 @@ ActiveRecord::Schema.define(version: 2022_10_31_160004) do
     t.string "technicalContactEmail"
     t.integer "technicalContactPhoneNumber"
   end
-=======
-ActiveRecord::Schema.define(version: 2022_10_27_154957) do
->>>>>>> dev
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "last_name"
