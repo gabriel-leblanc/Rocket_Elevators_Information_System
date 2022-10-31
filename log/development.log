@@ -50650,3 +50650,43 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 719ms (Views: 714.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2022-10-31 16:58:31 -0400
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/julinux/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/julinux/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 835ms (Views: 827.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/quotes" for ::1 at 2022-10-31 16:59:26 -0400
+Processing by QuotesController#form as HTML
+  Rendering quotes/form.html.erb within layouts/application
+  Rendered quotes/form.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/quotes" for ::1 at 2022-10-31 16:59:38 -0400
+Processing by QuotesController#create as HTML
+  Parameters: {"radio_quote"=>"residential", "number_apartments"=>"77", "number_floors_residential"=>"77", "number_basements_residential"=>"77", "number_distinct_businesses_commercial"=>"", "number_floors_commercial"=>"", "number_basements_commercial"=>"", "number_parking_commercial"=>"", "number_elevators"=>"", "number_separate_companies"=>"", "number_floors_corporate"=>"", "number_basements_corporate"=>"", "number_parking_corporate"=>"", "max_number_occupants_floor_corporate"=>"", "number_distinct_businesses_hybrid"=>"", "number_floors_hybrid"=>"", "number_basements_hybrid"=>"", "number_parking_hybrid"=>"", "max_number_occupants_floor_hybrid"=>"", "number_hours_activity"=>"", "product_line"=>"premium", "elevator_need"=>"4", "unit_price"=>"$12,345", "total_price"=>"$49,380.00", "installation_fees"=>"$6,419.40", "final_price"=>"$55,799.40"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/quotes_controller.rb:79
+  [1m[36mQuote Create (0.8ms)[0m  [1m[32mINSERT INTO `quotes` (`building_type`, `number_apartments`, `number_floors_residential`, `number_basements_residential`, `number_distinct_businesses_commercial`, `number_floors_commercial`, `number_basements_commercial`, `number_parking_commercial`, `number_elevators`, `number_separate_companies`, `number_floors_corporate`, `number_basements_corporate`, `number_parking_corporate`, `max_number_occupants_floor_corporate`, `number_distinct_businesses_hybrid`, `number_floors_hybrid`, `number_basements_hybrid`, `number_parking_hybrid`, `max_number_occupants_floor_hybrid`, `number_hours_activity`, `product_line`, `elevator_need`, `unit_price`, `total_price`, `installation_fees`, `final_price`, `created_at`, `updated_at`) VALUES ('residential', '77', '77', '77', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'premium', 4, '$12,345', '$49,380.00', '$6,419.40', '$55,799.40', '2022-10-31 20:59:38', '2022-10-31 20:59:38')[0m
+  ↳ app/controllers/quotes_controller.rb:79
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/quotes_controller.rb:79
+No template found for QuotesController#create, rendering head :no_content
+Completed 204 No Content in 85ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/" for ::1 at 2022-10-31 17:06:08 -0400
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/julinux/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.0ms)
+
+

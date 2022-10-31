@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+# User Table 
 user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
 employee = Employee.create!(
     first_name: 'Mathieu',
@@ -96,3 +96,8 @@ employee = Employee.create!(
     email: 'eileen.ai@codeboxx.biz',
     user: user
 )
+
+
+
+
+# Address table  
