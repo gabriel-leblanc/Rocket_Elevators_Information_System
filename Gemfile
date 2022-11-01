@@ -9,8 +9,9 @@ gem 'rails' , '5.2.7.1'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
-
+# use to use multiple database
 gem 'multiverse'
+
 gem 'pg'
 
 # Use SCSS for stylesheets
