@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_191415) do
+ActiveRecord::Schema.define(version: 2022_11_01_154550) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "address_type"
+    t.string "adress_type"
     t.string "status"
     t.string "entity"
     t.string "number_and_street"
-    t.integer "suite_apartement"
+    t.string "suite_appartment"
     t.string "city"
     t.string "postal_code"
     t.string "country"
     t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -44,6 +46,22 @@ ActiveRecord::Schema.define(version: 2022_10_31_191415) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "full_name_contact"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "project_name"
+    t.text "project_description"
+    t.string "department_elevator"
+    t.string "string"
+    t.text "message"
+    t.date "date_contact_request"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.binary "attached_file"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
