@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/quotes', to: 'quotes#form'
   post '/quotes', to: 'quotes#create'
 
+ 
+
+
   # get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get 'home' => 'home#index' 
