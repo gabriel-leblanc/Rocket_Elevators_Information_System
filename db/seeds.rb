@@ -106,8 +106,22 @@ require "json"
 
 file = File.open "address/addresses-us-1000.json"
 data = JSON.load file 
-puts data['addresses'][1]['city']
 
-address = Address.create!(city:data['addresses'][1]['city'])
+address = Address.create!(
+    number_and_street:data['addresses'][1]['address1'],
+    suite_appartment:data['addresses'][1]['address2'],
+    city:data['addresses'][1]['city'],
+    postal_code:data['addresses'][1]['postalCode'],
+    country:"US"
+    
+)
 puts address.city
+puts address.number_and_street
+puts address.suite_appartment
+puts address.postal_code
+puts address.country
+
+
+
+
 
