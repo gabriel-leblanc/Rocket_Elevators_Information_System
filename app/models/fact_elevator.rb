@@ -1,0 +1,2 @@
+class FactElevator < DatawarehouseRecord
+end
