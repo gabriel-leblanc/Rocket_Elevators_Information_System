@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2022_11_01_125428) do
     t.string "buildingAddress"
     t.string "adminFullName"
     t.string "adminEmail"
-    t.integer "adminPhoneNumber"
+    t.string "adminPhoneNumber"
     t.string "technicalContactFullName"
     t.string "technicalContactEmail"
-    t.integer "technicalContactPhoneNumber"
+    t.string "technicalContactPhoneNumber"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
