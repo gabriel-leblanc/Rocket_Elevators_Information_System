@@ -105,5 +105,5 @@ require "json"
 # Address table  
 
 file = File.open "address/addresses-us-1000.json"
-address = JSON.load file 
-puts address.keys
+data = JSON.load file 
+puts data['addresses'][1]['city']
