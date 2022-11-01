@@ -1,3 +1,5 @@
+require "json"
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,7 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+# User Table 
 user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
 employee = Employee.create!(
     first_name: 'Mathieu',
@@ -96,3 +98,30 @@ employee = Employee.create!(
     email: 'eileen.ai@codeboxx.biz',
     user: user
 )
+
+
+
+
+# Address table  
+
+file = File.open "address/addresses-us-1000.json"
+data = JSON.load file 
+
+address = Address.create!(
+    number_and_street:data['addresses'][1]['address1'],
+    suite_appartment:data['addresses'][1]['address2'],
+    city:data['addresses'][1]['city'],
+    postal_code:data['addresses'][1]['postalCode'],
+    country:"US"
+    
+)
+puts address.city
+puts address.number_and_street
+puts address.suite_appartment
+puts address.postal_code
+puts address.country
+
+
+
+
+
