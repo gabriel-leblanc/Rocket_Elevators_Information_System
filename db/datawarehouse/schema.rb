@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_01_191652) do
+ActiveRecord::Schema.define(version: 2022_11_01_204631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "FactQuotes", force: :cascade do |t|
-    t.integer "quoteid"
-    t.datetime "creation"
-    t.string "companyname"
-    t.string "email"
-    t.integer "nbelevator"
+  create_table "dim_customers", force: :cascade do |t|
+    t.datetime "creation_date"
+    t.string "company_name"
+    t.string "fullname_company_main_contact"
+    t.string "email_company_main_contact"
+    t.integer "nb_elevators"
+    t.string "customer_city"
   end
 
   create_table "fact_contacts", force: :cascade do |t|
@@ -29,6 +30,22 @@ ActiveRecord::Schema.define(version: 2022_11_01_191652) do
     t.string "companyname"
     t.string "email"
     t.string "projectname"
+  end
+
+  create_table "fact_elevators", force: :cascade do |t|
+    t.string "serial_number"
+    t.datetime "date_of_commissioning"
+    t.integer "building_id"
+    t.integer "customer_id"
+    t.string "building_city"
+  end
+
+  create_table "fact_quotes", force: :cascade do |t|
+    t.integer "quote_id"
+    t.datetime "creation"
+    t.string "company_name"
+    t.string "email"
+    t.integer "nb_elevator"
   end
 
 end
