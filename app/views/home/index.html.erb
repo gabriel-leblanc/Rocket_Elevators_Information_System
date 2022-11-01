@@ -1032,19 +1032,19 @@ Did Rocket Elevator convince you?
                <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
             </div>
             <!-- /Alert Mandatory -->
-            <form action="" method="post" enctype="multipart/form-data">
+            <form id="form-lead" autocomplete="on" action="/leads" method="post" enctype="multipart/form-data">
                <fieldset>
                   <input type="hidden" name="action" value="contact_send" />
                   <div class="row">
                      <div class="col-md-6">
                         <label for="contact:name">Full Name *</label>
                         <input required type="text" value="" class="form-control"
-                           name="contact[name][required]" id="contact:name">
+                           name="contact[name][required]" id="contact:fullName">
                      </div>
                      <div class="col-md-6">
                         <label for="contact:name">Business Name *</label>
                         <input required type="text" value="" class="form-control"
-                           name="contact[name][required]" id="contact:name">
+                           name="contact[name][required]" id="contact:businessName">
                      </div>
                   </div>
                   <div class="row">
@@ -1070,16 +1070,16 @@ Did Rocket Elevator convince you?
                         </select>
                      </div>
                      <div class="col-md-8">
-                        <label for="contact:phone">Project Name</label>
-                        <input type="text" value="" class="form-control" name="contact[phone]"
-                           id="contact:phone">
+                        <label for="contact:project_name">Project Name</label>
+                        <input type="text" value="" class="form-control" name="contact[project_name]"
+                           id="contact:projectName">
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12">
-                        <label for="contact:message">Project Description *</label>
+                        <label for="contact:project_description">Project Description *</label>
                         <textarea required maxlength="10000" rows="5" class="form-control"
-                           name="contact[message]" id="contact:message"></textarea>
+                           name="contact[project_description]" id="contact:projectDescription"></textarea>
                      </div>
                   </div>
                   <div class="row">

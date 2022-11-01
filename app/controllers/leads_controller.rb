@@ -4,16 +4,17 @@ class LeadsController < ApplicationController
     end
 
     def create
+        puts params
         lead= Lead.new()
-        lead.full_name_contact = params[:radio_lead]
-        lead.company_name = params[:number_apartments]
-        lead.email = params[:number_floors_residential]
-        lead.phone = params[:number_basements_residential]
-        lead.project_name = params[:number_distinct_businesses_commercial]
+        lead.full_name_contact = params[:contact:fullName]
+        lead.company_name = params[:contact:businessName]
+        lead.email = params[:contact:email]
+        lead.phone = params[:contact:phone]
+        lead.project_name = params[:contact:projectName]
         lead.project_description = params[:number_floors_commercial]
         lead.department_elevator = params[:number_basements_commercial]
-        lead.message = params[:number_parking_commercial]
-        lead.attached_file = params[:number_elevators]
+        lead.message = params[:contact:message]
+        lead.attached_file = params[:contact:attachment]
  
 
         lead.save()
