@@ -107,3 +107,7 @@ require "json"
 file = File.open "address/addresses-us-1000.json"
 data = JSON.load file 
 puts data['addresses'][1]['city']
+
+# address = Addresse.new()
+# puts address
+
