@@ -1,5 +1,6 @@
 class CreateBuildings < ActiveRecord::Migration[5.2]
   def change
+    change_column :adminPhoneNumber, :technicalContactPhoneNumber, :string
     create_table :buildings do |t|
       t.string :customerID
       t.string :buildingAddress
