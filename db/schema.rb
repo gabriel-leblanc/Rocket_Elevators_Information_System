@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_203657) do
+ActiveRecord::Schema.define(version: 2022_11_01_125428) do
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "customerID"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_203657) do
     t.date "date_contact_request"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.binary "attached_file"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|

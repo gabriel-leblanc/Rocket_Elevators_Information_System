@@ -50207,3 +50207,123 @@ Migrating to CreateLeads (20221031203657)
   ↳ bin/rails:9
   [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-10-31 19:14:58 -0400
+  [1m[35m (14.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/gabrielle/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (22.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/gabrielle/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 2524ms (Views: 2507.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-10-31 19:17:34 -0400
+  [1m[35m (2.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/gabrielle/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/gabrielle/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.7.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 2403ms (Views: 2386.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/quotes" for ::1 at 2022-10-31 19:17:44 -0400
+Processing by QuotesController#form as HTML
+  Rendering quotes/form.html.erb within layouts/application
+  Rendered quotes/form.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 563ms (Views: 537.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/quotes" for ::1 at 2022-10-31 19:18:11 -0400
+Processing by QuotesController#create as HTML
+  Parameters: {"radio_quote"=>"residential", "number_apartments"=>"123", "number_floors_residential"=>"12", "number_basements_residential"=>"2", "number_distinct_businesses_commercial"=>"", "number_floors_commercial"=>"", "number_basements_commercial"=>"", "number_parking_commercial"=>"", "number_elevators"=>"", "number_separate_companies"=>"", "number_floors_corporate"=>"", "number_basements_corporate"=>"", "number_parking_corporate"=>"", "max_number_occupants_floor_corporate"=>"", "number_distinct_businesses_hybrid"=>"", "number_floors_hybrid"=>"", "number_basements_hybrid"=>"", "number_parking_hybrid"=>"", "max_number_occupants_floor_hybrid"=>"", "number_hours_activity"=>"", "product_line"=>"standard", "elevator_need"=>"2", "unit_price"=>"$7565", "total_price"=>"$15,130.00", "installation_fees"=>"$1,513.00", "final_price"=>"$16,643.00"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/quotes_controller.rb:79
+  [1m[36mQuote Create (17.6ms)[0m  [1m[32mINSERT INTO `quotes` (`building_type`, `number_apartments`, `number_floors_residential`, `number_basements_residential`, `number_distinct_businesses_commercial`, `number_floors_commercial`, `number_basements_commercial`, `number_parking_commercial`, `number_elevators`, `number_separate_companies`, `number_floors_corporate`, `number_basements_corporate`, `number_parking_corporate`, `max_number_occupants_floor_corporate`, `number_distinct_businesses_hybrid`, `number_floors_hybrid`, `number_basements_hybrid`, `number_parking_hybrid`, `max_number_occupants_floor_hybrid`, `number_hours_activity`, `product_line`, `elevator_need`, `unit_price`, `total_price`, `installation_fees`, `final_price`, `created_at`, `updated_at`) VALUES ('residential', '123', '12', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'standard', 2, '$7565', '$15,130.00', '$1,513.00', '$16,643.00', '2022-10-31 23:18:11', '2022-10-31 23:18:11')[0m
+  ↳ app/controllers/quotes_controller.rb:79
+  [1m[35m (34.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/quotes_controller.rb:79
+No template found for QuotesController#create, rendering head :no_content
+Completed 204 No Content in 417ms (ActiveRecord: 142.9ms)
+
+
+Started GET "/" for ::1 at 2022-10-31 19:19:30 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 125ms (Views: 123.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (5.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT GET_LOCK('1881698957577941040', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (17.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to AdPAttachedFileToLeads (20221101124544)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221101124544')[0m
+  ↳ bin/rails:9
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('1881698957577941040')[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT GET_LOCK('1881698957577941040', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to AdPAttachedFileToLeads (20221101124544)
+  [1m[36mActiveRecord::SchemaMigration Destroy (19.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20221101124544'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('1881698957577941040')[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('1881698957577941040', 0)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAttachedFileToLeads (20221101125428)
+  [1m[35m (109.8ms)[0m  [1m[35mALTER TABLE `leads` ADD `attached_file` blob[0m
+  ↳ db/migrate/20221101125428_add_attached_file_to_leads.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221101125428')[0m
+  ↳ bin/rails:9
+  [1m[35m (34.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('1881698957577941040')[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ bin/rails:9
