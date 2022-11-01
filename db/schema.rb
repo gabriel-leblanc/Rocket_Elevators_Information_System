@@ -10,22 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_10_31_160004) do
+ActiveRecord::Schema.define(version: 2022_11_01_125428) do
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "customerID"
     t.string "buildingAddress"
     t.string "adminFullName"
     t.string "adminEmail"
-    t.integer "adminPhoneNumber"
+    t.string "adminPhoneNumber"
     t.string "technicalContactFullName"
     t.string "technicalContactEmail"
-    t.integer "technicalContactPhoneNumber"
+    t.string "technicalContactPhoneNumber"
   end
-=======
-ActiveRecord::Schema.define(version: 2022_10_27_154957) do
->>>>>>> dev
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "last_name"
@@ -36,6 +32,22 @@ ActiveRecord::Schema.define(version: 2022_10_27_154957) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "full_name_contact"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "project_name"
+    t.text "project_description"
+    t.string "department_elevator"
+    t.string "string"
+    t.text "message"
+    t.date "date_contact_request"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.binary "attached_file"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
