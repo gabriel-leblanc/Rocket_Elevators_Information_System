@@ -1,0 +1,3 @@
+bin/rails generate migration AddUserRefToProducts user:references
+
+bin/rails generate model Battery type:string status:string date_of_commissioning:date date_of_last_inspection:date certificate_of_operations:text information:string notes:string
