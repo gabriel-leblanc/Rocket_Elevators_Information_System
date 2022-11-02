@@ -1,4 +1,6 @@
 require "json"
+require "faker"
+
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -99,9 +101,6 @@ employee = Employee.create!(
     user: user
 )
 
-
-
-
 # Address table  
 
 file = File.open "address/addresses-us-1000.json"
@@ -130,6 +129,32 @@ puts address.postal_code
 puts address.country
 
 
+#Faker
+# 10.times do
+#     addresses = Address.create!(
+#         #address_type: ..,
+#         #status: ..,
+#         #entity: ..,
+#         number_and_street: Faker::Address.street_address,
+#         suite_appartment: Faker::Address.secondary_address,
+#         city: Faker::Address.city,
+#         postal_code: Faker::Address.zip_code,
+#         country: "US",
+#         #notes: ..,
+#         #created_at: ..,
+#         #updated_at: ..,
+#     )
+# end
 
-
-
+5.times do
+    buildings = Building.create!(
+            customerID: ID,
+            # buildingAddress
+            adminFullName: Faker::FunnyName.name,
+            # adminEmail
+            # adminPhoneNumber
+            # technicalContactFullName
+            # technicalContactEmail
+            # technicalContactPhoneNumber
+    )
+end
