@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/quotes', to: 'quotes#form'
   post '/quotes', to: 'quotes#create'
 
- 
+  get '/leads', to: 'leads#form'
   post '/leads', to: 'leads#create'
 
   # get 'home/index'
