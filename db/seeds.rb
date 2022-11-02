@@ -116,8 +116,12 @@ address = Address.create!(
 )
 
 # customer table 
-for i in 1..
+for i in 1..customers
     customer = Customer.create!(
+        address:
+        user:
+        Building:
+        batterie:
         
     )
 end
