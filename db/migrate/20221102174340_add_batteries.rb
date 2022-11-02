@@ -1,7 +1,7 @@
 class AddBatteries < ActiveRecord::Migration[5.2]
   def change
     create_table :batteries do |t|
-      t.string :type
+      t.string :type_of_building
       t.string :status
       t.date :date_of_commissioning
       t.date :date_of_last_inspection
