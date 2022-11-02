@@ -10,7 +10,7 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string :department_elevator
       t.string :string
       t.text :message
-      t.date :date_contact_request
+      t.datetime :date_contact_request
 
       t.timestamps
     end
