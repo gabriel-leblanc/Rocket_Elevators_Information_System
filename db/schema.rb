@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_175419) do
+ActiveRecord::Schema.define(version: 2022_11_02_191714) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -82,6 +82,10 @@ ActiveRecord::Schema.define(version: 2022_11_02_175419) do
     t.string "_email_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -117,11 +121,11 @@ ActiveRecord::Schema.define(version: 2022_11_02_175419) do
     t.string "project_name"
     t.text "project_description"
     t.string "department_elevator"
-    t.string "string"
     t.text "message"
     t.datetime "date_contact_request"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.binary "attached_file"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -170,7 +174,9 @@ ActiveRecord::Schema.define(version: 2022_11_02_175419) do
   add_foreign_key "batteries", "buildings"
   add_foreign_key "batteries", "employees", column: "employees_id"
   add_foreign_key "building_details", "buildings"
-  add_foreign_key "elevators", "columns"
   add_foreign_key "columns", "batteries"
+  add_foreign_key "customers", "addresses"
+  add_foreign_key "customers", "users"
+  add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end
