@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/quotes', to: 'quotes#form'
   post '/quotes', to: 'quotes#create'
 
+  
+  # root 'leads#form'
   get '/leads', to: 'leads#form'
   post '/leads', to: 'leads#create'
 
