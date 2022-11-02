@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 2022_11_02_145613) do
     t.string "technicalContactPhoneNumber"
   end
 
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "type"
+    t.integer "number_floors_served"
+    t.string "status"
+    t.string "information"
+    t.text "notes"
+  end
+
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "customers_creation_date"
     t.string "company_name"
