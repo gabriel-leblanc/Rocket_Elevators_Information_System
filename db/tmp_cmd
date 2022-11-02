@@ -1,0 +1,5 @@
+bin/rails generate model BuildingDetail buildingId:integer key:string value:string
+
+
+
+bin/rails generate model Addresses adress_type:string status:string entity:string number_and_street:string suite_appartment  city:string postal_code:string country:string notes:string
