@@ -115,6 +115,14 @@ address = Address.create!(
     country:"US"
     
 )
+
+# customer table 
+for i in 1..
+    customer = Customer.create!(
+        
+    )
+end
+
 puts address.city
 puts address.number_and_street
 puts address.suite_appartment
