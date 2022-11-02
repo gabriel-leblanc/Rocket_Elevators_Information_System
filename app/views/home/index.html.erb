@@ -1036,7 +1036,7 @@ Did Rocket Elevator convince you?
 
             <form id="form-lead" autocomplete="on" action="/leads" method="post" enctype="multipart/form-data">
                <fieldset>
-                  <input type="hidden" name="action" value="contact_send" />
+                  <%# <input type="hidden" name="action" value="contact_send" /> %>
                   <div class="row">
                      <div class="col-md-6">
                         <label for="contact:name">Full Name *</label>
@@ -1107,6 +1107,7 @@ Did Rocket Elevator convince you?
                      <%# <button type="button" class="btn btn-primary" onclick="showMessage()"><i class="fa fa-check"></i> SEND
                      MESSAGE</button> %>
 
+                     
                      <input type="submit" value="Submit" >
 
                   </div>
