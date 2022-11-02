@@ -1032,37 +1032,39 @@ Did Rocket Elevator convince you?
                <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
             </div>
             <!-- /Alert Mandatory -->
-            <form action="" method="post" enctype="multipart/form-data">
+
+
+            <form id="form-lead" autocomplete="on" action="/leads" method="post" enctype="multipart/form-data">
                <fieldset>
-                  <input type="hidden" name="action" value="contact_send" />
+                  <%# <input type="hidden" name="action" value="contact_send" /> %>
                   <div class="row">
                      <div class="col-md-6">
                         <label for="contact:name">Full Name *</label>
                         <input required type="text" value="" class="form-control"
-                           name="contact[name][required]" id="contact:name">
+                           name="full_name_contact" id="full_name_contact">
                      </div>
                      <div class="col-md-6">
                         <label for="contact:name">Business Name *</label>
                         <input required type="text" value="" class="form-control"
-                           name="contact[name][required]" id="contact:name">
+                           name="company_name" id="company_name">
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-6">
                         <label for="contact:email">E-mail Address *</label>
                         <input required type="email" value="" class="form-control"
-                           name="contact[email][required]" id="contact:email">
+                           name="email" id="email">
                      </div>
                      <div class="col-md-6">
                         <label for="contact:phone">Phone</label>
-                        <input type="text" value="" class="form-control" name="contact[phone]"
-                           id="contact:phone">
+                        <input type="text" value="" class="form-control" name="phone"
+                           id="phone">
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-4">
                         <label for="contact_department">Department</label>
-                        <select class="form-control pointer" name="contact[department]">
+                        <select class="form-control pointer" name="department">
                            <option value="">--- Select ---</option>
                            <option value="Marketing">Marketing</option>
                            <option value="Webdesign">Webdesign</option>
@@ -1070,23 +1072,23 @@ Did Rocket Elevator convince you?
                         </select>
                      </div>
                      <div class="col-md-8">
-                        <label for="contact:phone">Project Name</label>
-                        <input type="text" value="" class="form-control" name="contact[phone]"
-                           id="contact:phone">
+                        <label for="contact:project_name">Project Name</label>
+                        <input type="text" value="" class="form-control" name="project_name"
+                           id="project_name">
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12">
-                        <label for="contact:message">Project Description *</label>
+                        <label for="contact:project_description">Project Description *</label>
                         <textarea required maxlength="10000" rows="5" class="form-control"
-                           name="contact[message]" id="contact:message"></textarea>
+                           name="project_description" id="contact:projectDescription"></textarea>
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12">
                         <label for="contact:message">Message *</label>
                         <textarea required maxlength="10000" rows="5" class="form-control"
-                           name="contact[message]" id="contact:message"></textarea>
+                           name="message" id="contact:message"></textarea>
                      </div>
                   </div>
                   <div class="row">
@@ -1094,7 +1096,11 @@ Did Rocket Elevator convince you?
                         <label for="contact:attachment">File Attachment</label>
                         <!-- custom file upload -->
                         <input class="custom-file-upload" type="file" id="file"
+<<<<<<< HEAD
                            name="contact[attachment]"id="contact:attachment"
+=======
+                           name="attached_file" id="contact:attachment"
+>>>>>>> dev
                            data-btn-text="Select a File" />
                         <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
                      </div>
@@ -1102,8 +1108,12 @@ Did Rocket Elevator convince you?
                </fieldset>
                <div class="row">
                   <div class="col-md-12">
-                     <button type="button" class="btn btn-primary" onclick="showMessage()"><i class="fa fa-check"></i> SEND
-                     MESSAGE</button>							
+                     <%# <button type="button" class="btn btn-primary" onclick="showMessage()"><i class="fa fa-check"></i> SEND
+                     MESSAGE</button> %>
+
+                     
+                     <input type="submit" value="Submit" >
+
                   </div>
                </div>
             </form>

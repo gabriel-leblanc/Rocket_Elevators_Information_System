@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_132437) do
     t.string "project_name"
     t.text "project_description"
     t.string "department_elevator"
-    t.string "string"
     t.text "message"
     t.date "date_contact_request"
     t.datetime "created_at", null: false
