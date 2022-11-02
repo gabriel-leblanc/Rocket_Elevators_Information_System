@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_191714) do
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "customers_creation_date"
     t.string "company_name"
+    t.string "Company_headquarters_address"
     t.string "fullname_company_contact"
     t.string "company_contact_phone"
     t.string "email_company_contact"
@@ -81,6 +82,10 @@ ActiveRecord::Schema.define(version: 2022_11_02_191714) do
     t.string "_email_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -93,6 +98,8 @@ ActiveRecord::Schema.define(version: 2022_11_02_191714) do
     t.string "certificate_inspection"
     t.string "information"
     t.text "notes"
+    t.bigint "column_id"
+    t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -115,7 +122,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_191714) do
     t.text "project_description"
     t.string "department_elevator"
     t.text "message"
-    t.date "date_contact_request"
+    t.datetime "date_contact_request"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.binary "attached_file"
@@ -168,5 +175,8 @@ ActiveRecord::Schema.define(version: 2022_11_02_191714) do
   add_foreign_key "batteries", "employees", column: "employees_id"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "columns", "batteries"
+  add_foreign_key "customers", "addresses"
+  add_foreign_key "customers", "users"
+  add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end
