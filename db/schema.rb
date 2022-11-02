@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_012308) do
+ActiveRecord::Schema.define(version: 2022_11_02_132437) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2022_11_02_012308) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "key"
+    t.string "value"
+    t.bigint "building_id"
+    t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -121,5 +128,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_012308) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "building_details", "buildings"
   add_foreign_key "employees", "users"
 end
