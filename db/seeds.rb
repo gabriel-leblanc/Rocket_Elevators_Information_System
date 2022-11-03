@@ -1,6 +1,9 @@
 require "json"
 require "faker"
 
+buildingtype = ['residential', 'corporate', 'commercial']
+statusbuilding = 'online'
+addresstype= ['home', 'business']
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -121,15 +124,20 @@ data['addresses'].each do |i|
         suite_appartment: i['address2'],
         city: i['city'],
         postal_code: i['postalCode'],
-        country:"US"
+        country:"US",
+        address_type: addresstype[rand(0..1)],
+        entity: Faker::Company.name,
+        status: 'ative',
+        notes: Faker::TvShows::Supernatural.creature
 
-        
+                
     )
-   
+    user = User.create!(email: Faker::Internet.email, password: "123456789")
+  
    customer = Customer.create!(
     customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     company_name: Faker::Company.name,
-    Company_headquarters_address: address,
+    address: address,
     fullname_company_contact: Faker::Company.name,
     company_contact_phone: Faker::PhoneNumber.phone_number,
     email_company_contact: Faker::Internet.email,
@@ -137,23 +145,42 @@ data['addresses'].each do |i|
     fullname_service_technical_authority: Faker::Name.name,
     technical_authority_phone_service: Faker::PhoneNumber.phone_number,
     technical_manager: Faker::Company.name,
-    _email_service:  Faker::Internet.email
+    _email_service:  Faker::Internet.email,
+    user: user
     
-   )
 
-   puts customer.first
-end
-
-
-13.times do
-    buildings = Building.create!(
-            # customerID: ID,
-            buildingAddress: Faker::Address.full_address,
-            adminFullName: Faker::FunnyName.name,
-            adminEmail: Faker::Internet.free_email,
-            adminPhoneNumber: Faker::PhoneNumber.cell_phone,
-            technicalContactFullName: Faker::Name.name_with_middle,
-            technicalContactEmail: Faker::Internet.free_email,
-            technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
+    
     )
+   puts customer.address.inspect
+  
 end
+
+
+# 2.times do
+#     buildings = Building.create!(
+#         # customerID: customer,
+#         buildingAddress: Faker::Address.full_address,
+#         adminFullName: Faker::FunnyName.name,
+#         adminEmail: Faker::Internet.free_email,
+#         adminPhoneNumber: Faker::PhoneNumber.cell_phone,
+#         technicalContactFullName: Faker::Name.name_with_middle,
+#         technicalContactEmail: Faker::Internet.free_email,
+#         technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
+#     )
+# end
+
+# 2.times do
+#     batterie = Battery.create!(
+#         type_of_building: buildingtype[rand(0...2)],
+#         status: statusbuilding,
+#         # date_of_commissioning: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+#         # date_of_last_inspection: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+#         certificate_of_operations: Faker::Alphanumeric.alphanumeric(number: 10),
+#         information: Faker::TvShows::Supernatural.creature,
+#         notes: Faker::TvShows::Buffy.quote
+
+#     )
+#     # puts batterie
+
+
+# end
