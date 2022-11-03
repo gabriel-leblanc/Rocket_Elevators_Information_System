@@ -10,21 +10,28 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: 654321    
-  host: localhost
-  
+
 development:
   <<: *default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: root
+  host: localhost
+  port: 3306
   database: rocketelevatorsinformationsystem_development
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: root
+  host: localhost
+  port: 3306
   database: rocketelevatorsinformationsystem_test
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -47,6 +54,28 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  port: 5433
   database: rocketelevatorsinformationsystem_production
   username: rocketelevatorsinformationsystem
   password: <%= ENV['ROCKETELEVATORSINFORMATIONSYSTEM_DATABASE_PASSWORD'] %>
+
+datawarehouse_development:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: datawarehouse_development
+  username: postgres
+  password: GMeate
+  host: localhost
+  port: 5433
+
+datawarehouse_test:
+  <<: *default
+  database: datawarehouse_test
+
+datawarehouse_production:
+  <<: *default
+  url: <%= ENV['DATAWAREHOUSE_DATABASE_URL'] %>
