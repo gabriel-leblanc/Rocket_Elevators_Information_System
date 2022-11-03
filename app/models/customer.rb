@@ -1,4 +1,4 @@
 class Customer < ApplicationRecord
-  belongs_to :user  
-  belongs_to :Address
+  # belongs_to :user  
+  # belongs_to :Address
 end
