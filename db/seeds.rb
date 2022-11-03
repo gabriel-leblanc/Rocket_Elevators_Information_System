@@ -6,7 +6,6 @@ require "faker"
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
@@ -106,31 +105,56 @@ employee = Employee.create!(
 file = File.open "address/addresses-us-1000.json"
 data = JSON.load file 
 
-address = Address.create!(
-    number_and_street:data['addresses'][1]['address1'],
-    suite_appartment:data['addresses'][1]['address2'],
-    city:data['addresses'][1]['city'],
-    postal_code:data['addresses'][1]['postalCode'],
-    country:"US"
-    
-)
-
-# customer table 
-for i in 1..customers
-    customer = Customer.create!(
-        address:
-        user:
-        Building:
-        batterie:
-        
+# address = Address.create!(
+   
+#     number_and_street:data['addresses'][1]['address1'],
+#     suite_appartment:data['addresses'][1]['address2'],
+#     city:data['addresses'][1]['city'],
+#     postal_code:data['addresses'][1]['postalCode'],
+#     country:"US"
+   
+# )
+data['addresses'].each do |i|
+    address = Address.create!(
+        number_and_street: i['address1'],
+        suite_appartment: i['address2'],
+        city: i['city'],
+        postal_code: i['postalCode'],
+        country:"US"
     )
 end
 
-puts address.city
-puts address.number_and_street
-puts address.suite_appartment
-puts address.postal_code
-puts address.country
+customer = Customer.create!(
+    # customers_creation_date:
+    company_name: Faker::Company.name,
+    #company_headquarters_address: address,
+    # fullname_company_contact
+    company_contact_phone: Faker::PhoneNumber.phone_number,
+    # email_company_contact
+    # Company_description
+    # fullname_service_technical_authority
+    technical_authority_phone_service: Faker::FunnyName.four_word_name,
+    # technical_manager
+    #  _email_service   
+    #user: user  
+   
+)
+
+  puts customer.company_name
+  puts customer.company_contact_phone
+  puts customer.technical_authority_phone_service
+
+
+
+ 
+#puts customer.user
+#puts customer.address
+
+#puts address.city
+#puts address.number_and_street
+#puts address.suite_appartment
+#puts address.postal_code
+#puts address.country
 
 
 #Faker
@@ -150,15 +174,15 @@ puts address.country
 #     )
 # end
 
-5.times do
-    buildings = Building.create!(
-            customerID: ID,
-            # buildingAddress
-            adminFullName: Faker::FunnyName.name,
-            # adminEmail
-            # adminPhoneNumber
-            # technicalContactFullName
-            # technicalContactEmail
-            # technicalContactPhoneNumber
-    )
-end
+# 5.times do
+#     buildings = Building.create!(
+#             #customerID: ID,
+#             # buildingAddress
+#             adminFullName: Faker::FunnyName.name,
+#             # adminEmail
+#             # adminPhoneNumber
+#             # technicalContactFullName
+#             # technicalContactEmail
+#             # technicalContactPhoneNumber
+#     )
+# end
