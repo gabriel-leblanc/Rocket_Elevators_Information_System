@@ -124,6 +124,7 @@ data['addresses'].each do |i|
     )
 end
 
+
 customer = Customer.create!(
     # customers_creation_date:
     company_name: Faker::Company.name,
@@ -132,7 +133,7 @@ customer = Customer.create!(
     company_contact_phone: Faker::PhoneNumber.phone_number,
     # email_company_contact
     # Company_description
-    # fullname_service_technical_authority
+    #fullname_service_technical_authority:
     technical_authority_phone_service: Faker::FunnyName.four_word_name,
     # technical_manager
     #  _email_service   
@@ -143,12 +144,11 @@ customer = Customer.create!(
   puts customer.company_name
   puts customer.company_contact_phone
   puts customer.technical_authority_phone_service
+  puts customer.fullname_service_technical_authority
 
 
 
  
-#puts customer.user
-#puts customer.address
 
 #puts address.city
 #puts address.number_and_street
