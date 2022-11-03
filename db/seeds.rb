@@ -137,10 +137,11 @@ data['addresses'].each do |i|
     fullname_service_technical_authority: Faker::Name.name,
     technical_authority_phone_service: Faker::PhoneNumber.phone_number,
     technical_manager: Faker::Company.name,
-     _email_service:  Faker::Internet.email
-
+    _email_service:  Faker::Internet.email
+    
    )
-   
+
+   puts customer.first
 end
 
 
