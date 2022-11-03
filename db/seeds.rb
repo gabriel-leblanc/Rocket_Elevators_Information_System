@@ -174,11 +174,11 @@ data['addresses'].each do |i|
     
     building_detail = BuildingDetail.create!(
         key: 'contruction_date',
-        value: Faker::Date.between(from: '1983-09-23', to: '2014-09-25'),
+        value: Faker::Date.between(from: '1983-09-23', to: '2022-09-25'),
         building: buildings
     )
     
-    puts building_detail.inspect
+    # puts building_detail.inspect
     # puts buildings
 end
 
