@@ -13,23 +13,23 @@ addresstype= ['home', 'business']
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User Table 
-# user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
-# employee = Employee.create!(
-#     first_name: 'Mathieu',
-#     last_name: 'Houde',
-#     title: 'Gopher',
-#     email: 'mathieu.houde@codeboxx.biz',
-#     user: user
-# )
+user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
+employee = Employee.create!(
+    first_name: 'Mathieu',
+    last_name: 'Houde',
+    title: 'Gopher',
+    email: 'mathieu.houde@codeboxx.biz',
+    user: user
+)
 
-# user = User.create!(email: "patrick.thibault@codeboxx.biz", password: "Patrick321!")
-# employee = Employee.create!(
-#     first_name: 'Patrick',
-#     last_name: 'Thibault',
-#     title: 'Maximalist',
-#     email: 'patrick.thibault@codeboxx.biz',
-#     user: user
-# )
+user = User.create!(email: "patrick.thibault@codeboxx.biz", password: "Patrick321!")
+employee = Employee.create!(
+    first_name: 'Patrick',
+    last_name: 'Thibault',
+    title: 'Maximalist',
+    email: 'patrick.thibault@codeboxx.biz',
+    user: user
+)
 
 # user = User.create!(email: "francis.patry-jessop@codeboxx.biz", password: "Francis321!")
 # employee = Employee.create!(
@@ -151,36 +151,37 @@ data['addresses'].each do |i|
 
     
     )
-   puts customer.address.inspect
-  
+     
 end
 
 
-# 2.times do
-#     buildings = Building.create!(
-#         # customerID: customer,
-#         buildingAddress: Faker::Address.full_address,
-#         adminFullName: Faker::FunnyName.name,
-#         adminEmail: Faker::Internet.free_email,
-#         adminPhoneNumber: Faker::PhoneNumber.cell_phone,
-#         technicalContactFullName: Faker::Name.name_with_middle,
-#         technicalContactEmail: Faker::Internet.free_email,
-#         technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
-#     )
-# end
+2.times do
+    buildings = Building.create!(
+        customer: customer,
+        buildingAddress: Faker::Address.full_address,
+        adminFullName: Faker::FunnyName.name,
+        adminEmail: Faker::Internet.free_email,
+        adminPhoneNumber: Faker::PhoneNumber.cell_phone,
+        technicalContactFullName: Faker::Name.name_with_middle,
+        technicalContactEmail: Faker::Internet.free_email,
+        technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
+    )
+end
 
-# 2.times do
-#     batterie = Battery.create!(
-#         type_of_building: buildingtype[rand(0...2)],
-#         status: statusbuilding,
-#         # date_of_commissioning: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-#         # date_of_last_inspection: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-#         certificate_of_operations: Faker::Alphanumeric.alphanumeric(number: 10),
-#         information: Faker::TvShows::Supernatural.creature,
-#         notes: Faker::TvShows::Buffy.quote
+2.times do
+    batterie = Battery.create!(
+        type_of_building: buildingtype[rand(0...2)],
+        status: statusbuilding,
+        date_of_commissioning: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+        date_of_last_inspection: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+        certificate_of_operations: Faker::Alphanumeric.alphanumeric(number: 10),
+        information: Faker::TvShows::Supernatural.creature,
+        notes: Faker::TvShows::Buffy.quote,
+        employee: employee,
+        building: buildings 
 
-#     )
-#     # puts batterie
+    )
+    puts batterie
 
 
-# end
+end
