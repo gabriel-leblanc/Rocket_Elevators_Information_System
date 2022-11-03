@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_204951) do
+ActiveRecord::Schema.define(version: 2022_11_03_173752) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -60,12 +61,12 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type"
     t.integer "number_floors_served"
     t.string "status"
     t.string "information"
     t.text "notes"
     t.bigint "battery_id"
+    t.string "building_type"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
@@ -92,7 +93,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "serial_number"
     t.string "model"
-    t.string "type"
     t.string "status"
     t.date "date_commissioning"
     t.date "date_last_inspection"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
     t.string "information"
     t.text "notes"
     t.bigint "column_id"
+    t.string "building_type"
     t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
@@ -130,6 +131,8 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "name_company"
+    t.string "email_company"
     t.string "building_type"
     t.string "number_apartments"
     t.string "number_floors_residential"
@@ -182,3 +185,103 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end
+=======
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2022_10_31_193726) do
+
+  create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "customerID"
+    t.string "buildingAddress"
+    t.string "adminFullName"
+    t.string "adminEmail"
+    t.integer "adminPhoneNumber"
+    t.string "technicalContactFullName"
+    t.string "technicalContactEmail"
+    t.integer "technicalContactPhoneNumber"
+  end
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "customers_creation_date"
+    t.string "company_name"
+    t.string "company_headquarters_adress"
+    t.string "fullname_company_contact"
+    t.string "company_contact_phone"
+    t.string "email_company_contact"
+    t.string "Company_description"
+    t.string "fullname_service_technical_authority"
+    t.string "technical_authority_phone_service"
+    t.string "technical_manager"
+    t.string "_email_service"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "title"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "building_type"
+    t.string "number_apartments"
+    t.string "number_floors_residential"
+    t.string "number_basements_residential"
+    t.string "number_distinct_businesses_commercial"
+    t.string "number_floors_commercial"
+    t.string "number_basements_commercial"
+    t.string "number_parking_commercial"
+    t.string "number_elevators"
+    t.string "number_separate_companies"
+    t.string "number_floors_corporate"
+    t.string "number_basements_corporate"
+    t.string "number_parking_corporate"
+    t.string "max_number_occupants_floor_corporate"
+    t.string "number_distinct_businesses_hybrid"
+    t.string "number_floors_hybrid"
+    t.string "number_basements_hybrid"
+    t.string "number_parking_hybrid"
+    t.string "max_number_occupants_floor_hybrid"
+    t.string "number_hours_activity"
+    t.string "product_line"
+    t.integer "elevator_need"
+    t.string "unit_price"
+    t.string "total_price"
+    t.string "installation_fees"
+    t.string "final_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "employees", "users"
+end
+>>>>>>> 1ced20d30480f33820b916169395dc09d9c02ea9
