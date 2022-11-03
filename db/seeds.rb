@@ -11,14 +11,18 @@ require "faker"
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Employee.destroy_all
-# Employee.reset_pk_sequence
+# Employee.destroy_all
+# # Employee.reset_pk_sequence
 
-User.destroy_all
-# User.reset_pk_sequence
+# User.destroy_all
+# # User.reset_pk_sequence
 
-Address.destroy_all
-# Address.reset_pk_sequence
+# Address.destroy_all
+# # Address.reset_pk_sequence
+
+buildingtype = ['residential', 'corporate', 'commercial']
+statusbuilding = 'online'
+addresstype = ['home', 'business']
 
 # User Table 
 # user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
@@ -132,32 +136,33 @@ data['addresses'].each do |i|
         suite_appartment: i['address2'],
         city: i['city'],
         postal_code: i['postalCode'],
-        country:"US"
-
-        
+        country:"US",
+        address_type: addresstype[rand(0..1)],
+        status: 'active',
+        entity: Faker::Company.name,
+        notes: Faker::DcComics.title
     )
-   
-   customer = Customer.create!(
-    customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-    company_name: Faker::Company.name,
-    Company_headquarters_address: address,
-    fullname_company_contact: Faker::Company.name,
-    company_contact_phone: Faker::PhoneNumber.phone_number,
-    email_company_contact: Faker::Internet.email,
-    Company_description: Faker::ChuckNorris.fact,
-    fullname_service_technical_authority: Faker::Name.name,
-    technical_authority_phone_service: Faker::PhoneNumber.phone_number,
-    technical_manager: Faker::Company.name,
-     _email_service:  Faker::Internet.email
+    
+    user = User.create!(email: Faker::Internet.email, password: "123456789")
+    
+    customer = Customer.create!(
+        customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+        company_name: Faker::Company.name,
+        # Company_headquarters_address: address,
+        fullname_company_contact: Faker::Company.name,
+        company_contact_phone: Faker::PhoneNumber.phone_number,
+        email_company_contact: Faker::Internet.email,
+        Company_description: Faker::ChuckNorris.fact,
+        fullname_service_technical_authority: Faker::Name.name,
+        technical_authority_phone_service: Faker::PhoneNumber.phone_number,
+        technical_manager: Faker::Company.name,
+         _email_service:  Faker::Internet.email,
+        address: address,
+        user: user
+    )
 
-   )
-   
-end
-
-
-13.times do
     buildings = Building.create!(
-            # customerID: ID,
+            customer: customer,
             buildingAddress: Faker::Address.full_address,
             adminFullName: Faker::FunnyName.name,
             adminEmail: Faker::Internet.free_email,
@@ -166,4 +171,14 @@ end
             technicalContactEmail: Faker::Internet.free_email,
             technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
     )
+    
+    building_detail = BuildingDetail.create!(
+        key: 'contruction_date',
+        value: Faker::Date.between(from: '1983-09-23', to: '2014-09-25'),
+        building: buildings
+    )
+    
+    puts building_detail.inspect
+    # puts buildings
 end
+
