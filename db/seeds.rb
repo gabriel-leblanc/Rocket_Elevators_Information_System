@@ -102,7 +102,7 @@ employee = Employee.create!(
 
 # Address table  
 
-file = File.open "address/addresses-us-1000.json"
+file = File.open "address/addresses-us-100.json"
 data = JSON.load file 
 
 # address = Address.create!(
@@ -122,6 +122,8 @@ data['addresses'].each do |i|
         postal_code: i['postalCode'],
         country:"US"
     )
+
+
 end
 
 
