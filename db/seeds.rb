@@ -1,12 +1,15 @@
+require "json"
+require "faker"
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+# User Table 
 user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
 employee = Employee.create!(
     first_name: 'Mathieu',
@@ -96,3 +99,61 @@ employee = Employee.create!(
     email: 'eileen.ai@codeboxx.biz',
     user: user
 )
+
+# Address table  
+
+file = File.open "address/addresses-us-100.json"
+data = JSON.load file 
+
+# address = Address.create!(
+   
+#     number_and_street:data['addresses'][1]['address1'],
+#     suite_appartment:data['addresses'][1]['address2'],
+#     city:data['addresses'][1]['city'],
+#     postal_code:data['addresses'][1]['postalCode'],
+#     country:"US"
+   
+# )
+
+data['addresses'].each do |i|
+    address = Address.create!(
+        number_and_street: i['address1'],
+        suite_appartment: i['address2'],
+        city: i['city'],
+        postal_code: i['postalCode'],
+        country:"US"
+
+        
+    )
+   
+   customer = Customer.create!(
+    customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+    company_name: Faker::Company.name,
+    Company_headquarters_address: address,
+    fullname_company_contact: Faker::Company.name,
+    company_contact_phone: Faker::PhoneNumber.phone_number,
+    email_company_contact: Faker::Internet.email,
+    Company_description: Faker::ChuckNorris.fact,
+    fullname_service_technical_authority: Faker::Name.name,
+    technical_authority_phone_service: Faker::PhoneNumber.phone_number,
+    technical_manager: Faker::Company.name,
+    _email_service:  Faker::Internet.email
+    
+   )
+
+#    puts customer.first
+end
+
+
+13.times do
+    buildings = Building.create!(
+            # customerID: ID,
+            buildingAddress: Faker::Address.full_address,
+            adminFullName: Faker::FunnyName.name,
+            adminEmail: Faker::Internet.free_email,
+            adminPhoneNumber: Faker::PhoneNumber.cell_phone,
+            technicalContactFullName: Faker::Name.name_with_middle,
+            technicalContactEmail: Faker::Internet.free_email,
+            technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
+    )
+end

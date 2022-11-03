@@ -9,6 +9,10 @@ gem 'rails' , '5.2.7.1'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
+# use to use multiple database
+gem 'multiverse'
+
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -41,6 +45,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 # install devise
 gem 'rails_admin'
+
+#gem faker - pour la database
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -75,3 +82,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Json 
+gem 'json'
