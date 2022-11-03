@@ -6,7 +6,6 @@ require "faker"
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
@@ -103,44 +102,51 @@ employee = Employee.create!(
 
 # Address table  
 
-file = File.open "address/addresses-us-1000.json"
+file = File.open "address/addresses-us-100.json"
 data = JSON.load file 
 
-address = Address.create!(
-    number_and_street:data['addresses'][1]['address1'],
-    suite_appartment:data['addresses'][1]['address2'],
-    city:data['addresses'][1]['city'],
-    postal_code:data['addresses'][1]['postalCode'],
-    country:"US"
-    
-)
-puts address.city
-puts address.number_and_street
-puts address.suite_appartment
-puts address.postal_code
-puts address.country
+# address = Address.create!(
+   
+#     number_and_street:data['addresses'][1]['address1'],
+#     suite_appartment:data['addresses'][1]['address2'],
+#     city:data['addresses'][1]['city'],
+#     postal_code:data['addresses'][1]['postalCode'],
+#     country:"US"
+   
+# )
 
+data['addresses'].each do |i|
+    address = Address.create!(
+        number_and_street: i['address1'],
+        suite_appartment: i['address2'],
+        city: i['city'],
+        postal_code: i['postalCode'],
+        country:"US"
 
-#Faker
-# 10.times do
-#     addresses = Address.create!(
-#         #address_type: ..,
-#         #status: ..,
-#         #entity: ..,
-#         number_and_street: Faker::Address.street_address,
-#         suite_appartment: Faker::Address.secondary_address,
-#         city: Faker::Address.city,
-#         postal_code: Faker::Address.zip_code,
-#         country: "US",
-#         #notes: ..,
-#         #created_at: ..,
-#         #updated_at: ..,
-#     )
-# end
+        
+    )
+   
+   customer = Customer.create!(
+    customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+    company_name: Faker::Company.name,
+    Company_headquarters_address: address,
+    fullname_company_contact: Faker::Company.name,
+    company_contact_phone: Faker::PhoneNumber.phone_number,
+    email_company_contact: Faker::Internet.email,
+    Company_description: Faker::ChuckNorris.fact,
+    fullname_service_technical_authority: Faker::Name.name,
+    technical_authority_phone_service: Faker::PhoneNumber.phone_number,
+    technical_manager: Faker::Company.name,
+     _email_service:  Faker::Internet.email
+
+   )
+   
+end
+
 
 # 5.times do
 #     buildings = Building.create!(
-#             customerID: ID,
+#             #customerID: ID,
 #             # buildingAddress
 #             adminFullName: Faker::FunnyName.name,
 #             # adminEmail
