@@ -114,6 +114,7 @@ data = JSON.load file
 #     country:"US"
    
 # )
+
 data['addresses'].each do |i|
     address = Address.create!(
         number_and_street: i['address1'],
@@ -121,60 +122,27 @@ data['addresses'].each do |i|
         city: i['city'],
         postal_code: i['postalCode'],
         country:"US"
+
+        
     )
+   
+   customer = Customer.create!(
+    customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+    company_name: Faker::Company.name,
+    Company_headquarters_address: address,
+    fullname_company_contact: Faker::Company.name,
+    company_contact_phone: Faker::PhoneNumber.phone_number,
+    email_company_contact: Faker::Internet.email,
+    Company_description: Faker::ChuckNorris.fact,
+    fullname_service_technical_authority: Faker::Name.name,
+    technical_authority_phone_service: Faker::PhoneNumber.phone_number,
+    technical_manager: Faker::Company.name,
+     _email_service:  Faker::Internet.email
 
-
+   )
+   
 end
 
-
-customer = Customer.create!(
-    # customers_creation_date:
-    company_name: Faker::Company.name,
-    #company_headquarters_address: address,
-    # fullname_company_contact
-    company_contact_phone: Faker::PhoneNumber.phone_number,
-    # email_company_contact
-    # Company_description
-    #fullname_service_technical_authority:
-    technical_authority_phone_service: Faker::FunnyName.four_word_name,
-    # technical_manager
-    #  _email_service   
-    #user: user  
-   
-)
-
-  puts customer.company_name
-  puts customer.company_contact_phone
-  puts customer.technical_authority_phone_service
-  puts customer.fullname_service_technical_authority
-
-
-
- 
-
-#puts address.city
-#puts address.number_and_street
-#puts address.suite_appartment
-#puts address.postal_code
-#puts address.country
-
-
-#Faker
-# 10.times do
-#     addresses = Address.create!(
-#         #address_type: ..,
-#         #status: ..,
-#         #entity: ..,
-#         number_and_street: Faker::Address.street_address,
-#         suite_appartment: Faker::Address.secondary_address,
-#         city: Faker::Address.city,
-#         postal_code: Faker::Address.zip_code,
-#         country: "US",
-#         #notes: ..,
-#         #created_at: ..,
-#         #updated_at: ..,
-#     )
-# end
 
 # 5.times do
 #     buildings = Building.create!(
