@@ -138,15 +138,15 @@ puts address.country
 #     )
 # end
 
-5.times do
-    buildings = Building.create!(
-            customerID: ID,
-            # buildingAddress
-            adminFullName: Faker::FunnyName.name,
-            # adminEmail
-            # adminPhoneNumber
-            # technicalContactFullName
-            # technicalContactEmail
-            # technicalContactPhoneNumber
-    )
-end
+# 5.times do
+#     buildings = Building.create!(
+#             customerID: ID,
+#             # buildingAddress
+#             adminFullName: Faker::FunnyName.name,
+#             # adminEmail
+#             # adminPhoneNumber
+#             # technicalContactFullName
+#             # technicalContactEmail
+#             # technicalContactPhoneNumber
+#     )
+# end
