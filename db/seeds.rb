@@ -2,6 +2,7 @@ require "json"
 require "faker"
 
 
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -12,8 +13,13 @@ require "faker"
 
 
 Employee.destroy_all
+# Employee.reset_pk_sequence
+
 User.destroy_all
+# User.reset_pk_sequence
+
 Address.destroy_all
+# Address.reset_pk_sequence
 
 # User Table 
 user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
