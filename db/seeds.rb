@@ -139,6 +139,7 @@ puts "data: #{data}"
 #     )
 # end
 
+<<<<<<< HEAD
 15.times do
     buildings = Building.create!(
             # customerID: ID,
@@ -151,3 +152,17 @@ puts "data: #{data}"
             # technicalContactPhoneNumber
     )
 end
+=======
+# 5.times do
+#     buildings = Building.create!(
+#             customerID: ID,
+#             # buildingAddress
+#             adminFullName: Faker::FunnyName.name,
+#             # adminEmail
+#             # adminPhoneNumber
+#             # technicalContactFullName
+#             # technicalContactEmail
+#             # technicalContactPhoneNumber
+#     )
+# end
+>>>>>>> dev
