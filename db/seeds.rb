@@ -144,15 +144,15 @@ data['addresses'].each do |i|
 end
 
 
-# 5.times do
-#     buildings = Building.create!(
-#             #customerID: ID,
-#             # buildingAddress
-#             adminFullName: Faker::FunnyName.name,
-#             # adminEmail
-#             # adminPhoneNumber
-#             # technicalContactFullName
-#             # technicalContactEmail
-#             # technicalContactPhoneNumber
-#     )
-# end
+13.times do
+    buildings = Building.create!(
+            # customerID: ID,
+            buildingAddress: Faker::Address.full_address,
+            adminFullName: Faker::FunnyName.name,
+            adminEmail: Faker::Internet.free_email,
+            adminPhoneNumber: Faker::PhoneNumber.cell_phone,
+            technicalContactFullName: Faker::Name.name_with_middle,
+            technicalContactEmail: Faker::Internet.free_email,
+            technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
+    )
+end
