@@ -5,13 +5,8 @@ development:
   <<: *default
   adapter: mysql2
   encoding: utf8
-<<<<<<< HEAD
   username: julien
   password: geriboire
-=======
-  username: root
-  password: root
->>>>>>> dev
   host: localhost
   port: 5433
   database: rocketelevatorsinformationsystem_development
@@ -19,13 +14,8 @@ test:
   <<: *default
   adapter: mysql2
   encoding: utf8
-<<<<<<< HEAD
   username: julien
   password: geriboire
-=======
-  username: root
-  password: root
->>>>>>> dev
   host: localhost
   port: 5433
   database: rocketelevatorsinformationsystem_test
@@ -44,15 +34,8 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   database: datawarehouse_development
-<<<<<<< HEAD
   username: julien
   password: geriboire
-=======
-  username: postgres
-  password: GMeate
-  host: localhost
-  port: 5433
->>>>>>> dev
 
 datawarehouse_test:
   <<: *default

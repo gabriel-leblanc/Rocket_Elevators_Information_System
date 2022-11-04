@@ -14,8 +14,8 @@ namespace :datawarehouse do
 
             )
           
-        
-
+        end
+    end
     task factContact: :environment do
         Lead.all.each do |contact|
             FactContact.create!(
