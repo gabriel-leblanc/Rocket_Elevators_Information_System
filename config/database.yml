@@ -10,16 +10,16 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   adapter: mysql2
   encoding: utf8
-  username: gabrielle
-  password: Codeboxx24!
+  username: root
+  password: root
   host: localhost
+  port: 5433
   database: rocketelevatorsinformationsystem_development
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,9 +28,10 @@ test:
   <<: *default
   adapter: mysql2
   encoding: utf8
-  username: gabrielle
-  password: Codeboxx24!
+  username: root
+  password: root
   host: localhost
+  port: 5433
   database: rocketelevatorsinformationsystem_test
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -65,8 +66,10 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   database: datawarehouse_development
-  username: gabrielle
-  password: Kandrabe
+  username: postgres
+  password: GMeate
+  host: localhost
+  port: 5433
 
 datawarehouse_test:
   <<: *default

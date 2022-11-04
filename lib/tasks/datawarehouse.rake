@@ -18,7 +18,7 @@ namespace :datawarehouse do
     task FactContact: :environment do
         FactContact = User.all.each do |user|
             puts "user :#{user.inspect}"
-            
+
         end
         
     end
