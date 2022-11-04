@@ -13,6 +13,7 @@ namespace :datawarehouse do
                 email: quote.company_email
 
             )
+           puts Elevator.find(1)
             puts quote.inspect
         # Quote.each { |i| puts i }
         end
