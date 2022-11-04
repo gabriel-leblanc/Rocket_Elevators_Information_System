@@ -1,6 +1,7 @@
 require 'pg'
 
 namespace :datawarehouse do
+<<<<<<< HEAD
     task factQuotes: :environment do
         # quoteid / creation/company name / email / nb elevator
         Quote.all.each do |quote|
@@ -16,9 +17,28 @@ namespace :datawarehouse do
            puts Elevator.find(1)
             puts quote.inspect
         # Quote.each { |i| puts i }
+=======
+
+    task factContact: :environment do
+        Lead.all.each do |contact|
+            FactContact.create!(
+                contactid: contact.id,
+                creationdate: contact.created_at,
+                companyname: contact.company_name,
+                email: contact.email,
+                projectname: contact.project_name
+            )
+            puts contact.id
+            puts contact.created_at
+            puts contact.company_name
+            puts contact.email
+            puts contact.project_name
+            
+>>>>>>> dev
         end
   end
 
+<<<<<<< HEAD
 
     # task test: :environment do
     #     test = User.all.each do |user|
@@ -35,4 +55,6 @@ namespace :datawarehouse do
 
         
     
+=======
+>>>>>>> dev
 end
