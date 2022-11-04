@@ -10,37 +10,28 @@ require "faker"
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# Employee.destroy_all
-# # Employee.reset_pk_sequence
-
-# User.destroy_all
-# # User.reset_pk_sequence
-
-# Address.destroy_all
-# # Address.reset_pk_sequence
-
 buildingtype = ['residential', 'corporate', 'commercial']
 statusbuilding = 'online'
 addresstype = ['home', 'business']
 
 # User Table 
-user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
-employee = Employee.create!(
-    first_name: 'Mathieu',
-    last_name: 'Houde',
-    title: 'Gopher',
-    email: 'mathieu.houde@codeboxx.biz',
-    user: user
-)
+# user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
+# employee = Employee.create!(
+#     first_name: 'Mathieu',
+#     last_name: 'Houde',
+#     title: 'Gopher',
+#     email: 'mathieu.houde@codeboxx.biz',
+#     user: user
+# )
 
-user = User.create!(email: "patrick.thibault@codeboxx.biz", password: "Patrick321!")
-employee = Employee.create!(
-    first_name: 'Patrick',
-    last_name: 'Thibault',
-    title: 'Maximalist',
-    email: 'patrick.thibault@codeboxx.biz',
-    user: user
-)
+# user = User.create!(email: "patrick.thibault@codeboxx.biz", password: "Patrick321!")
+# employee = Employee.create!(
+#     first_name: 'Patrick',
+#     last_name: 'Thibault',
+#     title: 'Maximalist',
+#     email: 'patrick.thibault@codeboxx.biz',
+#     user: user
+# )
 
 # user = User.create!(email: "francis.patry-jessop@codeboxx.biz", password: "Francis321!")
 # employee = Employee.create!(
@@ -114,19 +105,8 @@ employee = Employee.create!(
 #     user: user
 # )
 
-# Address table  
 
 
-
-# address = Address.create!(
-   
-#     number_and_street:data['addresses'][1]['address1'],
-#     suite_appartment:data['addresses'][1]['address2'],
-#     city:data['addresses'][1]['city'],
-#     postal_code:data['addresses'][1]['postalCode'],
-#     country:"US"
-   
-# )
 file = File.open "address/addresses-us-100.json"
 data = JSON.load file 
 
@@ -144,11 +124,27 @@ data['addresses'].each do |i|
     )
     
     user = User.create!(email: Faker::Internet.email, password: "123456789")
+    user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
+    employee = Employee.create!(
+        first_name: 'Mathieu',
+        last_name: 'Houde',
+        title: 'Gopher',
+        email: 'mathieu.houde@codeboxx.biz',
+        user: user
+    )
+
+    user = User.create!(email: "patrick.thibault@codeboxx.biz", password: "Patrick321!")
+    employee = Employee.create!(
+        first_name: 'Patrick',
+        last_name: 'Thibault',
+        title: 'Maximalist',
+        email: 'patrick.thibault@codeboxx.biz',
+        user: user
+    )
     
     customer = Customer.create!(
         customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-        company_name: Faker::Company.name,
-        # Company_headquarters_address: address,
+        company_name: Faker::Company.name,        
         fullname_company_contact: Faker::Company.name,
         company_contact_phone: Faker::PhoneNumber.phone_number,
         email_company_contact: Faker::Internet.email,
@@ -176,7 +172,7 @@ data['addresses'].each do |i|
     building_detail = BuildingDetail.create!(
         key: 'contruction_date',
         value: Faker::Date.between(from: '1983-09-23', to: '2022-09-25'),
-        building: buildings
+        building: building
     )
     
     # puts building_detail.inspect
@@ -190,7 +186,7 @@ data['addresses'].each do |i|
         certificate_of_operations: Faker::Alphanumeric.alphanumeric(number: 10),
         information: Faker::TvShows::Supernatural.creature,
         notes: Faker::TvShows::Buffy.quote,
-        # employee: employee,
+        employee: employee,
         building: building 
     )
          
