@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_173752) do
+ActiveRecord::Schema.define(version: 2022_11_04_153405) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2022_11_03_173752) do
     t.text "certificate_of_operations"
     t.string "information"
     t.string "notes"
-    t.bigint "employees_id"
     t.bigint "building_id"
+    t.bigint "employee_id"
     t.index ["building_id"], name: "index_batteries_on_building_id"
-    t.index ["employees_id"], name: "index_batteries_on_employees_id"
+    t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 2022_11_03_173752) do
   end
 
   add_foreign_key "batteries", "buildings"
-  add_foreign_key "batteries", "employees", column: "employees_id"
+  add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "customers"
   add_foreign_key "columns", "batteries"
