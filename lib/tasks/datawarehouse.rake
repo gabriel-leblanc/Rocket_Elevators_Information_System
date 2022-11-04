@@ -3,8 +3,14 @@ require 'pg'
 namespace :datawarehouse do
     task factQuotes: :environment do
         # quoteid / creation/company name / email / nb elevator
+        i = 1
         Quote.all.each do |quote|
+            FactQuote.create!(
+                id: i,
+                quote_id: i
+            )
             puts quote
+            i += 1
         # Quote.each { |i| puts i }
         end
   end
