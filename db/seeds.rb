@@ -14,7 +14,7 @@ buildingtype = ['residential', 'corporate', 'commercial']
 statusbuilding = 'online'
 addresstype = ['home', 'business']
 buildingmodel = ['standard', 'premium', 'excelium']
-
+# numberfloorsserved = rand(60)
 #User Table 
 user = User.create!(email: "mathieu.houde@codeboxx.biz", password: "Mathieu321!")
 employee = Employee.create!(
@@ -173,9 +173,8 @@ data['addresses'].each do |i|
         building: building 
     )
        
-    column = Column.create!(
-        
-        number_floors_served: Faker::Number.between(from: 1, to: 100),
+    column = Column.create!(        
+        number_floors_served: rand(1..60),
         status: 'online',
         information: Faker::ChuckNorris.fact,
         notes: Faker::ChuckNorris.fact,
@@ -196,6 +195,6 @@ data['addresses'].each do |i|
         column: column,
         building_type: buildingtype[rand(0..2)]
     )
-    puts elevator.inspect
+    puts column.inspect
 end
 

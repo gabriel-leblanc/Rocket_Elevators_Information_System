@@ -1,12 +1,19 @@
 require 'pg'
 
 namespace :datawarehouse do
-    task dimCustomer: :environment do
-        
+    task fact: :environment do
+        Elevator.all.each do |elevator|
+            FactElevator.create!(
+                serial_number: elevator.serial_number,
+                date_of_commissioning: elevator.date_commissioning,
+                building_id: elevator.column.battery.building_id,
+                customer_id: elevator.column.battery.building.customer_id,
+                building_city: elevator.column.battery.building.customer.address.city)
+            end
 
 
      Customer.all.each do |customer|
-        elevator_count = 0
+            elevator_count = 0
              customer.buildings.all.each do |building|
                  building.batteries.all.each do |batterie|
                     batterie.columns.all.each do |column|
@@ -21,11 +28,9 @@ namespace :datawarehouse do
                 email_company_main_contact: customer.email_company_contact,
                 customer_city: customer.address.city,
                  nb_elevators:  elevator_count
-            )
+                   )
         end
-    end
-    task factQuotes: :environment do
-        # quoteid / creation/company name / email / nb elevator
+    
         Quote.all.each do |quote|
             FactQuote.create!(
                 
@@ -36,10 +41,10 @@ namespace :datawarehouse do
                 email: quote.company_email
 
             )
-          
+            puts elevator.inspect
         end
-    end
-    task factContact: :environment do
+
+    
         Lead.all.each do |contact|
             FactContact.create!(
                 contactid: contact.id,
@@ -55,5 +60,6 @@ namespace :datawarehouse do
             puts contact.project_name
             
         end
-  end
+    end
 end
+   
