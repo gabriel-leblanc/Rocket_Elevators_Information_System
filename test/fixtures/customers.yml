@@ -1,8 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user_id: 1
   customers_creation_date: MyString
   company_name: MyString
+  company_headquarters_adress: MyString
   fullname_company_contact: MyString
   company_contact_phone: MyString
   email_company_contact: MyString
@@ -13,8 +15,10 @@ one:
   _email_service: MyString
 
 two:
+  user_id: 1
   customers_creation_date: MyString
   company_name: MyString
+  company_headquarters_adress: MyString
   fullname_company_contact: MyString
   company_contact_phone: MyString
   email_company_contact: MyString
