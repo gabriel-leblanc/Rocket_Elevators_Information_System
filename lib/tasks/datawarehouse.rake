@@ -1,7 +1,21 @@
 require 'pg'
 
 namespace :datawarehouse do
+    task factQuotes: :environment do
+        # quoteid / creation/company name / email / nb elevator
+        Quote.all.each do |quote|
+            FactQuote.create!(
+                
+                quote_id: quote.id,
+                creation: quote.created_at,
+                nb_elevator: quote.elevator_need,
+                company_name: quote.company_name,
+                email: quote.company_email
 
+            )
+          
+        end
+    end
     task factContact: :environment do
         Lead.all.each do |contact|
             FactContact.create!(
@@ -18,7 +32,11 @@ namespace :datawarehouse do
             puts contact.project_name
             
         end
-        
-    end
+  end
 
+
+  
+
+        
+    
 end

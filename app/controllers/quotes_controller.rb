@@ -7,6 +7,11 @@ class QuotesController < ApplicationController
         quote= Quote.new()
         quote.building_type = params[:radio_quote]
 
+        # name and email
+        quote.company_name = params[:name_company]
+        quote.company_email = params[:email_company]
+
+
 
         # residential
          quote.number_apartments = params[:number_apartments]
