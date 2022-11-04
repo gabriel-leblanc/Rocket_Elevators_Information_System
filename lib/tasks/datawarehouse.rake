@@ -3,9 +3,10 @@ require 'pg'
 namespace :datawarehouse do
     task factQuotes: :environment do
         # quoteid / creation/company name / email / nb elevator
-        factQuotes = FactQuote.create!(id:1)
-        puts factQuotes
-
+        Quote.all.each do |quote|
+            puts quote
+        # Quote.each { |i| puts i }
+        end
   end
 
 
@@ -16,12 +17,12 @@ namespace :datawarehouse do
         
     end
 
+
     task test_mysql_connection: :environment do
         test = ActiveRecord::Base.establish_connection
         puts "Current mysql connection: #{test.inspect}"
     end
 
-    task :test_postgresql_connection do
         
-    end
+    
 end
