@@ -1,19 +1,24 @@
 require 'pg'
 
 namespace :datawarehouse do
-    task test: :environment do
-        test = User.all.each do |user|
-            puts "user :#{user.inspect}"
+
+    task factContact: :environment do
+        Lead.all.each do |contact|
+            FactContact.create!(
+                contactid: contact.id,
+                creationdate: contact.created_at,
+                companyname: contact.company_name,
+                email: contact.email,
+                projectname: contact.project_name
+            )
+            puts contact.id
+            puts contact.created_at
+            puts contact.company_name
+            puts contact.email
+            puts contact.project_name
+            
         end
         
     end
 
-    task test_mysql_connection: :environment do
-        test = ActiveRecord::Base.establish_connection
-        puts "Current mysql connection: #{test.inspect}"
-    end
-
-    task :test_postgresql_connection do
-        
-    end
 end
