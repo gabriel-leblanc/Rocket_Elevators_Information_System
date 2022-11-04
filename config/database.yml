@@ -15,7 +15,7 @@ test:
   adapter: mysql2
   encoding: utf8
   username: julien
-  password: geriboire
+  password: geriboire!
   host: localhost
   port: 5433
   database: rocketelevatorsinformationsystem_test
