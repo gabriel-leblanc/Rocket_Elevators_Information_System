@@ -1,7 +1,6 @@
 require 'pg'
 
 namespace :datawarehouse do
-<<<<<<< HEAD
     task factQuotes: :environment do
         # quoteid / creation/company name / email / nb elevator
         Quote.all.each do |quote|
@@ -14,10 +13,8 @@ namespace :datawarehouse do
                 email: quote.company_email
 
             )
-           puts Elevator.find(1)
-            puts quote.inspect
-        # Quote.each { |i| puts i }
-=======
+          
+        
 
     task factContact: :environment do
         Lead.all.each do |contact|
@@ -34,27 +31,12 @@ namespace :datawarehouse do
             puts contact.email
             puts contact.project_name
             
->>>>>>> dev
         end
   end
 
-<<<<<<< HEAD
 
-    # task test: :environment do
-    #     test = User.all.each do |user|
-    #         puts "user :#{user.inspect}"
-    #     end
-        
-    # end
-
-
-    # task test_mysql_connection: :environment do
-    #     test = ActiveRecord::Base.establish_connection
-    #     puts "Current mysql connection: #{test.inspect}"
-    # end
+  
 
         
     
-=======
->>>>>>> dev
 end
