@@ -1,5 +1,4 @@
 default: &default
-
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -9,6 +8,7 @@ development:
   username: julien
   password: geriboire
   host: localhost
+  port: 5433
   database: rocketelevatorsinformationsystem_development
 test:
   <<: *default
@@ -17,6 +17,7 @@ test:
   username: julien
   password: geriboire!
   host: localhost
+  port: 5433
   database: rocketelevatorsinformationsystem_test
 
 production:

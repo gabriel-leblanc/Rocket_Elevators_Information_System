@@ -175,7 +175,7 @@ data['addresses'].each do |i|
        
     column = Column.create!(
         
-        number_floors_served: Faker::Alphanumeric.alpha(number: 10),
+        number_floors_served: Faker::Number.between(from: 1, to: 100),
         status: 'online',
         information: Faker::ChuckNorris.fact,
         notes: Faker::ChuckNorris.fact,
