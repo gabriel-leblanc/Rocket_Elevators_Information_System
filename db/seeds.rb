@@ -105,8 +105,7 @@ employee = Employee.create!(
 
 # Address table  
 
-file = File.open "address/addresses-us-100.json"
-data = JSON.load file 
+
 
 # address = Address.create!(
    
@@ -117,6 +116,8 @@ data = JSON.load file
 #     country:"US"
    
 # )
+file = File.open "address/addresses-us-100.json"
+data = JSON.load file 
 
 data['addresses'].each do |i|
     address = Address.create!(
@@ -129,34 +130,28 @@ data['addresses'].each do |i|
         entity: Faker::Company.name,
         status: 'ative',
         notes: Faker::TvShows::Supernatural.creature
-
-                
     )
+
     user = User.create!(email: Faker::Internet.email, password: "123456789")
+
   
-   customer = Customer.create!(
-    customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-    company_name: Faker::Company.name,
-    address: address,
-    fullname_company_contact: Faker::Company.name,
-    company_contact_phone: Faker::PhoneNumber.phone_number,
-    email_company_contact: Faker::Internet.email,
-    Company_description: Faker::ChuckNorris.fact,
-    fullname_service_technical_authority: Faker::Name.name,
-    technical_authority_phone_service: Faker::PhoneNumber.phone_number,
-    technical_manager: Faker::Company.name,
-    _email_service:  Faker::Internet.email,
-    user: user
-    
-
-    
+    customer = Customer.create!(
+        customers_creation_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+        company_name: Faker::Company.name,
+        address: address,
+        fullname_company_contact: Faker::Company.name,
+        company_contact_phone: Faker::PhoneNumber.phone_number,
+        email_company_contact: Faker::Internet.email,
+        Company_description: Faker::ChuckNorris.fact,
+        fullname_service_technical_authority: Faker::Name.name,
+        technical_authority_phone_service: Faker::PhoneNumber.phone_number,
+        technical_manager: Faker::Company.name,
+        _email_service:  Faker::Internet.email,
+        user: user
     )
-     
-end
 
-
-2.times do
-    buildings = Building.create!(
+   puts customer 
+    building = Building.create!(
         customer: customer,
         buildingAddress: Faker::Address.full_address,
         adminFullName: Faker::FunnyName.name,
@@ -166,10 +161,8 @@ end
         technicalContactEmail: Faker::Internet.free_email,
         technicalContactPhoneNumber: Faker::PhoneNumber.cell_phone,
     )
-end
 
-2.times do
-    batterie = Battery.create!(
+    battery = Battery.create!(
         type_of_building: buildingtype[rand(0...2)],
         status: statusbuilding,
         date_of_commissioning: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
@@ -177,11 +170,21 @@ end
         certificate_of_operations: Faker::Alphanumeric.alphanumeric(number: 10),
         information: Faker::TvShows::Supernatural.creature,
         notes: Faker::TvShows::Buffy.quote,
-        employee: employee,
-        building: buildings 
-
+        # employee: employee,
+        building: building 
     )
-    puts batterie
+         
+    # column = Column.create!(
+        
+    #     number_floors_served: Faker::Alphanumeric.alpha(number: 10),
+    #     status: 'online',
+    #     information: Faker::TvShows::Buffy.quote,
+    #     notes: Faker::TvShows::Buffy.quote,
+    #     battery: batterie,
+    #     building_type: buildingtype[rand(0..2)]
 
+    # )
 
+    
 end
+
