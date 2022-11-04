@@ -1,0 +1,46 @@
+default: &default
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: 654321
+  host: localhost
+  port: 5433
+  database: rocketelevatorsinformationsystem_development
+test:
+  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: 654321
+  host: localhost
+  port: 5433
+  database: rocketelevatorsinformationsystem_test
+
+production:
+  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  database: rocketelevatorsinformationsystem_production
+  username: root
+  password: 654321
+
+datawarehouse_development:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: datawarehouse_development
+  username: laura
+  password: 654321
+
+datawarehouse_test:
+  <<: *default
+  database: datawarehouse_test
+
+datawarehouse_production:
+  <<: *default
+  url: <%= ENV['DATAWAREHOUSE_DATABASE_URL'] %>
