@@ -1,21 +1,19 @@
 require 'pg'
 
 namespace :datawarehouse do
-    task FactElevators: :environment do
-        Elevator.all.each do |elevator|
-            FactElevator.create!(
-                serial_number: elevator.serial_number,
-                date_of_commissioning: elevator.date_commissioning,
-                building_id: elevator.column.battery.building_id,
-                customer_id: elevator.column.battery.building.customer_id,
-                building_city: elevator.column.battery.building.customer.address.city
-      
-            )
-            puts elevator.inspect
+    task test: :environment do
+        test = User.all.each do |user|
+            puts "user :#{user.inspect}"
         end
-        
     end
 
-   
+    task test_mysql_connection: :environment do
+        test = ActiveRecord::Base.establish_connection
+        puts "Current mysql connection: #{test.inspect}"
+    end
+
+    task :test_postgresql_connection do
+        
+    end
 end
    
