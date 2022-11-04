@@ -1,7 +1,0 @@
-bin/rails generate migration AddBattery type:string status:string date_of_commissioning:date date_of_last_inspection:date certificate_of_operations:text information:string notes:string
-
-bin/rails generate model Battery type:string status:string date_of_commissioning:date date_of_last_inspection:date certificate_of_operations:text information:string notes:string
-
-
-
-bin/rails generate migration AddbatteriesRefToBuilding battery:references

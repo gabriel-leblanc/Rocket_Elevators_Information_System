@@ -85,3 +85,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Json 
 gem 'json'
+
+# reset id database
+# gem 'activerecord-reset-pk-sequence'
