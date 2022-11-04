@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_204951) do
+ActiveRecord::Schema.define(version: 2022_11_04_153405) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
     t.text "certificate_of_operations"
     t.string "information"
     t.string "notes"
-    t.bigint "employees_id"
     t.bigint "building_id"
+    t.bigint "employee_id"
     t.index ["building_id"], name: "index_batteries_on_building_id"
-    t.index ["employees_id"], name: "index_batteries_on_employees_id"
+    t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type"
     t.integer "number_floors_served"
     t.string "status"
     t.string "information"
     t.text "notes"
     t.bigint "battery_id"
+    t.string "building_type"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "serial_number"
     t.string "model"
-    t.string "type"
     t.string "status"
     t.date "date_commissioning"
     t.date "date_last_inspection"
@@ -100,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
     t.string "information"
     t.text "notes"
     t.bigint "column_id"
+    t.string "building_type"
     t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
@@ -130,6 +130,8 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "name_company"
+    t.string "email_company"
     t.string "building_type"
     t.string "number_apartments"
     t.string "number_floors_residential"
@@ -173,7 +175,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_204951) do
   end
 
   add_foreign_key "batteries", "buildings"
-  add_foreign_key "batteries", "employees", column: "employees_id"
+  add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "customers"
   add_foreign_key "columns", "batteries"
