@@ -17,8 +17,8 @@ development:
   <<: *default
   adapter: mysql2
   encoding: utf8
-  username: root
-  password: 654321
+  username: gabrielle
+  password: Codeboxx24!
   host: localhost
   database: rocketelevatorsinformationsystem_development
 # Warning: The database defined as "test" will be erased and
@@ -28,8 +28,8 @@ test:
   <<: *default
   adapter: mysql2
   encoding: utf8
-  username: root
-  password: 654321
+  username: gabrielle
+  password: Codeboxx24!
   host: localhost
   database: rocketelevatorsinformationsystem_test
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -65,8 +65,8 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   database: datawarehouse_development
-  username: laura
-  password: 654321
+  username: gabrielle
+  password: Kandrabe
 
 datawarehouse_test:
   <<: *default

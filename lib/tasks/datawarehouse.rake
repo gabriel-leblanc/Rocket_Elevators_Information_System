@@ -1,19 +1,33 @@
 require 'pg'
 
+
+
+
 namespace :datawarehouse do
-    task test: :environment do
-        test = User.all.each do |user|
-            puts "user :#{user.inspect}"
+    task dimCustomer: :environment do
+        
+
+        Customer.all.each do |customer|
+            
+            puts customer.buildings.all.batteries.all.ids
+        #     DimCustomer.create!(
+        #         creation_date: customer.customers_creation_date,
+        #         company_name: customer.company_name,
+        #         fullname_company_main_contact: customer.fullname_company_contact,
+        #         email_company_main_contact: customer.email_company_contact,
+        #         customer_city: customer.address.city,
+        #         # nb_elevators: customer.buildings.batteries.columns.elevators.count(),  
+                
+        #         # nb_elevators: nb_elevator
+        #     )
+        #     # puts customer.nb_elevators
         end
-        
-    end
-
-    task test_mysql_connection: :environment do
-        test = ActiveRecord::Base.establish_connection
-        puts "Current mysql connection: #{test.inspect}"
-    end
-
-    task :test_postgresql_connection do
-        
     end
 end
+# test = Customer.all.each do |customer|
+#     customer.buildings.all.each do |building|
+#       ...
+#     end
+#   end
+
+    # puts "user :#{user.inspect}"
