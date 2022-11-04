@@ -2,13 +2,14 @@
 lock "~> 3.17.0"
 
 set :rbenv_type, :user # or :system, or :fullstaq (for Fullstaq Ruby), depends on your rbenv setup
-set :rbenv_ruby, File.read('.ruby-version').strip
+#set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
 set :rbenv_roles, :all # default value
 
 set :application, "JulienCharbonneau"
-set :repo_url, "git@github.com:JulienCharbonneau/Rocket_Elevators_Information_System.git"
+set :branch, "main"
+set :repo_url, "git@github.com:gabriel-leblanc/Rocket_Elevators_Information_System.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -42,4 +43,4 @@ set :repo_url, "git@github.com:JulienCharbonneau/Rocket_Elevators_Information_Sy
 # set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
+# set :ssh_options, verify_host_key: :securerun 
