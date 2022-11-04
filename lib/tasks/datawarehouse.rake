@@ -1,6 +1,14 @@
 require 'pg'
 
 namespace :datawarehouse do
+    task factQuotes: :environment do
+        # quoteid / creation/company name / email / nb elevator
+        factQuotes = FactQuote.create!(id:1)
+        puts factQuotes
+
+  end
+
+
     task test: :environment do
         test = User.all.each do |user|
             puts "user :#{user.inspect}"
