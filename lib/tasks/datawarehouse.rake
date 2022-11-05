@@ -15,7 +15,7 @@ namespace :datawarehouse do
 
     task dimCustomer: :environment do        
      Customer.all.each do |customer|
-        elevator_count = 0
+            elevator_count = 0
              customer.buildings.all.each do |building|
                  building.batteries.all.each do |batterie|
                     batterie.columns.all.each do |column|
@@ -29,12 +29,12 @@ namespace :datawarehouse do
                 fullname_company_main_contact: customer.fullname_company_contact,
                 email_company_main_contact: customer.email_company_contact,
                 customer_city: customer.address.city,
-                 nb_elevators:  elevator_count
-            )
+                nb_elevators:  elevator_count
+                )
         end
-    end
-    task factQuotes: :environment do
-        # quoteid / creation/company name / email / nb elevator
+    end 
+    
+    task factQuotes: :environment do   
         Quote.all.each do |quote|
             FactQuote.create!(
                 
@@ -43,9 +43,19 @@ namespace :datawarehouse do
                 nb_elevator: quote.elevator_need,
                 company_name: quote.company_name,
                 email: quote.company_email
-
             )
-            puts elevator.inspect
+        end
+    end
+    task FactElevators: :environment do
+        Elevator.all.each do |elevator|
+            FactElevator.create!(
+                serial_number: elevator.serial_number,
+                date_of_commissioning: elevator.date_commissioning,
+                building_id: elevator.column.battery.building_id,
+                customer_id: elevator.column.battery.building.customer_id,
+                building_city: elevator.column.battery.building.customer.address.city
+            )
+          
         end
 
     end
@@ -58,12 +68,7 @@ namespace :datawarehouse do
                 email: contact.email,
                 projectname: contact.project_name
             )
-            puts contact.id
-            puts contact.created_at
-            puts contact.company_name
-            puts contact.email
-            puts contact.project_name
-            
+                        
         end
   end
 end
