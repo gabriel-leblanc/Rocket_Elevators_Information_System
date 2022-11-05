@@ -1,12 +1,10 @@
 # README
 
-This week's assignment was a lot of different steps. We worked a lot in the terminal, in VsCode, of course, and with dBeaver and MySQL, for our database. Here is a summary of what we did:
+This project objective is  to convert a static website to a dynamic site using ruby on rails and MySQL.By linking the quote form of the original site to a database and by offer the possibility of to the user to register, the employes of Rocket Elevator can now have  access to a back office page to get valuable data in respect of the privacy of the user.
+A data warehouse is implemented to give easy access to important information for the employees. The database is full of fake information.
 
-## Configuration
 
-At first, we had to prepare our computers. To do so, we had a couple of installs to make. We installed the good version of Ruby, the good version of rails and MySQL. 
-
-The main goal of the week was to create an MVC (Model-View-Controller) webapp from a static website. We chose one of our teammates website from Genesis. 
+ 
 
 ## Database creation
 
@@ -82,11 +80,20 @@ Note: Before display any changes made in seed.rb, need to create an empty databa
 
 ![image (1)](https://user-images.githubusercontent.com/113922858/198722673-ee3e4a2b-0b2c-4e6f-9588-41b10bacc087.png)
 
+### Datawarehouse
+
+Datawarehouse is implemented with gems `multiverse` and `pg`. Posgrestql is use to host de warehouse.
+To update fact information a task was made with `Ruby on rails` to update yourself run the command in the current directory
+`rails datawarehouse:fact`
+
+### Fake info 
+
+Fake info was made with gem `faker`
 
 
-So the backend part was a lot of work between dBeaver, the Terminal and VsCode, where we linked it all together. 
-For the frontend part, after creating login and admin pages, as stated before, some details had to be corrected in the website. 
+### Deployment
 
+To have access to the site in the world wide web, we have linked our github repository to an amazon server. When the main branch is updated, we run: `bundle exec cap production deploy `.
+These gems were necessary to deploy the site correctly: `capistrano` , `puma`  ` bcrypt_pbkd`, and `ed25519`.
 
-/* Deployment instructions
 
